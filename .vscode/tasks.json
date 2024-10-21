@@ -4,8 +4,9 @@
 		{
 			"label": "PreCompiler_ga144_code",  // Option -f avec l'argument ${file}  Le fichier .ga à pre-compiler	
 			"type": "shell",
-			"command": "${workspaceFolder}/./launch_script_gaparser2",
+			"command": "python",
 			"args": [
+				"${workspaceFolder}/launch_script_gaparser2.py",
 				"-dl",
 				"${workspaceFolder}/Libraries/",
 				"-d",
@@ -23,8 +24,9 @@
 		{
 			"label": "Compiler_ga144_code",  // Le fichier _.ga à compiler avec ga  // Le fichier .f de sortie
 			"type": "shell",
-			"command": "${workspaceFolder}/./launch_script_ga", // Indiquez ici votre compilateur ou script
+			"command": "python",
 			"args": [
+				"${workspaceFolder}/launch_script_ga.py",
 				"${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga",
 				">",
 				"${workspaceFolder}/examples/${fileBasenameNoExtension}_assembleur_.ga"
