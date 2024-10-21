@@ -1,0 +1,18 @@
+require delay
+require gpio
+\ demo Led Pulse
+
+node 500
+: ledpulse
+
+    io.h \ led on
+    pause
+    io.l \ led off
+    pause
+    5ms
+    ledpulse
+
+
+
+
+    

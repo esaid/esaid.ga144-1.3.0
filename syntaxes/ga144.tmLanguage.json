@@ -1,0 +1,142 @@
+{
+	"information_for_contributors": [
+		" this file concerning ga144 forth style"
+	],
+	"version": "0.1",
+	"fileTypes": [
+		"_ga",
+		"ga_",
+		"ga",
+		"f"
+	],
+	"$schema": "",
+	"name": "GA144 Programming Language",
+	"scopeName": "source.ga144",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#transfer"
+		},
+		{
+			"include": "#data"
+		},
+		{
+			"include": "#alu"
+		},
+		{
+			"include": "#interface"
+		},
+		{
+			"include": "#newword"
+		},
+		
+		{
+			"include": "#node"
+		},
+		{
+			"include": "#other"
+		},
+		{
+			"include": "#hexa"
+		},
+		{
+			"include": "#number"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"match": "(//).*$",
+					"name": "comment_slash.ga144"
+				},
+				{
+					"match": "#.*$",
+					"name": "comment_diese.ga144"
+				},
+				{
+					"match": "(\\\\).*$",
+					"name": "comment_unslash.ga144"
+				},
+				{
+					"match": "(?<=^|\\s)(\\.?\\( [^)]*\\))",
+					"name": "comment_line_parantheses.ga144"
+				}
+			]
+		},
+		"transfer": {
+			"patterns": [
+				{
+					"match": "(;|ex|jump|call|unext|next|if|-if|then|else|for|loop|while)(?=\\s)",
+					"name": "transfer.ga144"
+				}
+			]
+		},
+		"data": {
+			"patterns": [
+				{
+					"match": "(@p|@+|@b|@|!p|!+|!b|(\\S!))(?=\\s)",
+					"name": "data.ga144"
+				}
+			]
+		},
+		"alu": {
+			"patterns": [
+				{
+					"match": "(?<=^|\\s)(?i:(\\+\\*|(2\\*)|(2\\/)|\\-|\\+|and|or|drop|dup|pop|>r|r>|over|a|push|b!|a!|inv))(?=\\s)",
+					"name": "alu.ga144"
+				}
+			]
+		},
+		"interface": {
+			"patterns": [
+				{
+					"match": "(^|\\W)(io|south|east|left|north|up|down|west)(?=\\s)",
+					"name": "interface.ga144"
+				}
+			]
+		},
+		"newword": {
+			"patterns": [
+				{
+					"match": "(\\:\\s(-?)\\w*)(?=\\s)",
+					"name": "newword.ga144"
+				}
+			]
+		},
+		"node": {
+			"patterns": [
+				{
+					"match": "((?<=node)\\s+)(\\b[0-7](([0][0-9])|([1][0-7]))\\b-?*(\\b[0-7](([0][0-9])|([1][0-7]))\\b)?)",
+					"name": "node.ga144"
+				}
+			]
+		},
+		"other": {
+			"patterns": [
+				{
+					"match": "\\b(link|node|require|include|boot|org)\\b",
+					"name": "other.ga144"
+				}
+			]
+		},
+		"hexa": {
+			"patterns": [
+				{
+					"match": "(\\$\\h+)|((0(x|X))\\h+)",
+					"name": "hexa.ga144"
+				}
+			]
+		},
+		"number": {
+			"patterns": [
+				{
+					"match": "(\\d+)",
+					"name": "number.ga144"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,32 @@
+::::GA*Tools Version 0.2
+
+=====================================================
+      Compiled             Assembled     Disassembled
+node  500 
+: ledpulse
+0     @p !b . .            23474         @p !b . .
+1     196608               196608        2/ and @b +
+2     call 8               73736         call 8
+3     @p !b . .            23474         @p !b . .
+4     131072               131072        over and @b +
+5     call 8               73736         call 8
+6     call f               73743         call f
+7     call 0               73728         call 0
+: pause
+8     @p push . .          18610         @p push . .
+9     5000                 5000          @b if 88
+a     @p push . .          18610         @p push . .
+b     10000                10000         @ 2/ @p +
+c     next c               122892        next c
+d     . . next a           182650        . . next 2
+e     ; . . .              84402         ;
+: 5ms
+f     @p push . .          18610         @p push . .
+10    5                    5             @b and @b ;
+11    @p push . .          18610         @p push . .
+12    999                  999           @b or or @p
+13    @p push . .          18610         @p push . .
+14    416                  416           @b + b! +
+15    unext next 13        118803        unext next 13
+16    next 11              122897        next 11
+17    ; . . .              84402         ;

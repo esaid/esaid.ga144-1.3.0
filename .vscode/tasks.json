@@ -1,0 +1,52 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "PreCompiler_ga144_code",  // Option -f avec l'argument ${file}  Le fichier .ga à pre-compiler	
+			"type": "shell",
+			"command": "${workspaceFolder}/./launch_script_gaparser2",
+			"args": [
+				"-dl",
+				"${workspaceFolder}/Libraries/",
+				"-d",
+				"examples/",
+				"-f",
+				"${fileBasename}"	  
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"detail": "ga144 Forth pre-compiler"
+		},
+		{
+			"label": "Compiler_ga144_code",  // Le fichier _.ga à compiler avec ga  // Le fichier .f de sortie
+			"type": "shell",
+			"command": "${workspaceFolder}/./launch_script_ga", // Indiquez ici votre compilateur ou script
+			"args": [
+				"${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga",
+				">",
+				"${workspaceFolder}/examples/${fileBasenameNoExtension}_assembleur_.ga"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"detail": "ga144 Forth compiler"
+		},
+		{
+			"label": "GA144 Compilation All",
+			"dependsOn": [
+				"PreCompiler_ga144_code",
+				"Compiler_ga144_code"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		}
+	]
+}

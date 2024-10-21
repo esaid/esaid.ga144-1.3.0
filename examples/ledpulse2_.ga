@@ -1,0 +1,27 @@
+\ require delay
+\ require gpio
+
+node 708
+include 708serial.ga
+
+\ demo Led Pulse
+
+node 500
+: ledpulse
+   
+    0x30000 !b . .    \ led on
+    pause
+    500ns
+   
+    0x20000 !b . .     \ led off
+    pause
+    500ns
+    ledpulse
+
+
+
+: pause
+	5000 for 10000 
+	for next . . next ;
+: 500ns
+	199 for unext ;

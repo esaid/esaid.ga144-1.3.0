@@ -1,0 +1,63 @@
+::::GA*Tools Version 0.2
+
+=====================================================
+      Compiled             Assembled     Disassembled
+node  600 
+: init
+0     @p a! @p .           18962         @p a! @p .
+1     469                  469           @b + +* ;
+2     349                  349           @b + ex
+3     b! dup or .          167394        b! dup or .
+4     !b . . .             35250         !b . . .
+: input
+5     @b @p and .          7674          @b @p and .
+6     131072               131072        over and @b +
+7     if a                 98314         if a
+8     drop @p . .          245170        drop @p . .
+9     1                    1             @b and @b +*
+a     ! jump 5             46853         ! jump 5
+
+=====================================================
+      Compiled             Assembled     Disassembled
+node  705 
+0     ; . . .              84402         ;
+
+=====================================================
+      Compiled             Assembled     Disassembled
+node  708 
+/p 21
+: send
+0     dup dup or .         151010        dup dup or .
+1     call 4               73732         call 4
+2     drop call 4          243204        drop call 4
+3     call 4               73732         call 4
+: _send8
+4     dup dup or .         151010        dup dup or .
+5     call c               73740         call c
+6     @p push . .          18610         @p push . .
+7     7                    7             @b and @b @p
+8     dup call c           153100        dup call c
+9     2/ next 8            200712        2/ next 8
+a     @p . . .             18866         @p . . .
+b     1                    1             @b and @b +*
+: _send1
+c     @p and @p .          16402         @p and @p .
+d     1                    1             @b and @b +*
+e     3                    3             @b and @b dup
+f     or !b @p .           236306        or !b @p .
+10    904                  904           @b or a +
+11    push . . .           190898        push . . .
+12    unext ; . .          120242        unext ;
+: exit
+13    @p jump 4            22276         @p jump 4
+14    1                    1             @b and @b +*
+: main
+15    @p b! @p .           19218         @p b! @p .
+16    349                  349           @b + ex
+17    277                  277           @b + @p ;
+18    a! . . .             174514        a! . . .
+: loop
+19    @ call 0             13824         @ call 0
+1a    drop jump 19         243481        drop jump 19
+Le répertoire courant est : /home/esaid/.vscode/extensions/esaid.ga144-1.2.0
+Exécution de : ga144_script/linux/./ga avec les arguments : ['/home/esaid/.vscode/extensions/esaid.ga144-1.2.0/examples/boutoninput_.ga']

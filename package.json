@@ -1,0 +1,100 @@
+{
+	"name": "ga144",
+	"displayName": "ga144",
+	"description": "GA144  ( Forth ) programming language",
+	"icon": "images/colorforth.png",
+	"version": "1.3.0",
+	"main": "src/extension.js",
+	"publisher": "esaid",
+	"author": {
+		"name": "Emmanuel SAID",
+		"email": "emmanuel.said@gmail.com",
+		"url": "https://github.com/esaid"
+	},
+	"devDependencies": {
+		"typescript": "^5.2.2"
+	},
+	"engines": {
+		"vscode": "^1.83.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"license": "MIT",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "ga144-explorer",
+					"title": "GA144 explorer",
+					"icon": "$(sync~spin)"
+				}
+			]
+		},
+		"views": {
+			"ga144-explorer": [
+				{
+					"id": "myView",
+					"name": "My Custom View"
+				},
+				{
+					"id": "CompilationView",
+					"name": "Compilation"
+				},
+				{
+					"id": "ForthView",
+					"name": "Forth"
+				}
+			]
+		},
+		"activationEvents": [
+			"*"
+		],
+		"commands": [
+			{
+				"command": "myExtension.sayHello",
+				"title": "Say Hello"
+			}
+		],
+		"languages": [
+			{
+				"id": "ga144",
+				"aliases": [
+					"GA144 Programming Language",
+					"GA144",
+					"ga144"
+				],
+				"extensions": [
+					"._ga",
+					".ga",
+					".ga_"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "ga144",
+				"scopeName": "source.ga144",
+				"path": "./syntaxes/ga144.tmLanguage.json"
+			}
+		],
+		"themes": [
+			{
+				"label": "GA144 Default Theme (dark)",
+				"uiTheme": "vs-dark",
+				"path": "./themes/ga144-theme-color-theme.json"
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/esaid/ga144_vscode"
+	},
+	"__metadata": {
+		"isApplicationScoped": false,
+		"installedTimestamp": 1729470810343,
+		"pinned": true,
+		"source": "vsix"
+	}
+}

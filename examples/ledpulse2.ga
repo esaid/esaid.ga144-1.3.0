@@ -1,0 +1,20 @@
+require delay
+require gpio
+
+node 708
+include 708serial.ga
+
+\ demo Led Pulse
+
+node 500
+: ledpulse
+    io.h  \ led on
+    pause
+    500ns
+    io.l   \ led off
+    pause
+    500ns
+    ledpulse
+
+
+

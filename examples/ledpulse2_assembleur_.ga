@@ -1,0 +1,56 @@
+::::GA*Tools Version 0.2
+
+=====================================================
+      Compiled             Assembled     Disassembled
+node  500 
+: ledpulse
+0     @p !b . .            23474         @p !b . .
+1     196608               196608        2/ and @b +
+2     call 9               73737         call 9
+3     call 10              73744         call 10
+4     @p !b . .            23474         @p !b . .
+5     131072               131072        over and @b +
+6     call 9               73737         call 9
+7     call 10              73744         call 10
+8     call 0               73728         call 0
+: pause
+9     @p push . .          18610         @p push . .
+a     5000                 5000          @b if 88
+b     @p push . .          18610         @p push . .
+c     10000                10000         @ 2/ @p +
+d     next d               122893        next d
+e     . . next b           182651        . . next 3
+f     ; . . .              84402         ;
+: 500ns
+10    @p push . .          18610         @p push . .
+11    199                  199           @b and 2/ @p
+12    unext ; . .          120242        unext ;
+
+=====================================================
+      Compiled             Assembled     Disassembled
+node  708 
+: send
+0     dup dup or .         151010        dup dup or .
+1     call 4               73732         call 4
+2     drop call 4          243204        drop call 4
+3     call 4               73732         call 4
+: _send8
+4     dup dup or .         151010        dup dup or .
+5     call c               73740         call c
+6     @p push . .          18610         @p push . .
+7     7                    7             @b and @b @p
+8     dup call c           153100        dup call c
+9     2/ next 8            200712        2/ next 8
+a     @p . . .             18866         @p . . .
+b     1                    1             @b and @b +*
+: _send1
+c     @p and @p .          16402         @p and @p .
+d     1                    1             @b and @b +*
+e     3                    3             @b and @b dup
+f     or !b @p .           236306        or !b @p .
+10    904                  904           @b or a +
+11    push . . .           190898        push . . .
+12    unext ; . .          120242        unext ;
+: exit
+13    @p jump 4            22276         @p jump 4
+14    1                    1             @b and @b +*

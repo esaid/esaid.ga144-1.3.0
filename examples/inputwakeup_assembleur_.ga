@@ -1,0 +1,59 @@
+::::GA*Tools Version 0.2
+
+=====================================================
+      Compiled             Assembled     Disassembled
+node  600 
+0     call b               73739         call b
+: init
+1     @p a! @p .           18962         @p a! @p .
+2     469                  469           @b + +* ;
+3     349                  349           @b + ex
+4     b! @p dup .          171410        b! @p dup .
+5     2048                 2048          @b push @b +
+6     or !b @p .           236306        or !b @p .
+7     373                  373           @b + unext ;
+8     !b . . .             35250         !b . . .
+: input
+9     call b               73739         call b
+a     jump 9               65545         jump 9
+: ?pin
+b     @b drop @p ;         533           @b drop @p ;
+c     1                    1             @b and @b +*
+
+=====================================================
+      Compiled             Assembled     Disassembled
+node  708 
+/p 21
+: send
+0     dup dup or .         151010        dup dup or .
+1     call 4               73732         call 4
+2     drop call 4          243204        drop call 4
+3     call 4               73732         call 4
+: _send8
+4     dup dup or .         151010        dup dup or .
+5     call c               73740         call c
+6     @p push . .          18610         @p push . .
+7     7                    7             @b and @b @p
+8     dup call c           153100        dup call c
+9     2/ next 8            200712        2/ next 8
+a     @p . . .             18866         @p . . .
+b     1                    1             @b and @b +*
+: _send1
+c     @p and @p .          16402         @p and @p .
+d     1                    1             @b and @b +*
+e     3                    3             @b and @b dup
+f     or !b @p .           236306        or !b @p .
+10    904                  904           @b or a +
+11    push . . .           190898        push . . .
+12    unext ; . .          120242        unext ;
+: exit
+13    @p jump 4            22276         @p jump 4
+14    1                    1             @b and @b +*
+: main
+15    @p b! @p .           19218         @p b! @p .
+16    349                  349           @b + ex
+17    277                  277           @b + @p ;
+18    a! . . .             174514        a! . . .
+: loop
+19    @ call 0             13824         @ call 0
+1a    drop jump 19         243481        drop jump 19

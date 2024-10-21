@@ -1,0 +1,21 @@
+\ require gpio
+\ require debug
+
+\ ga inputwakeup.ga --port /dev/ttyUSB0
+node 708
+include 708serial.ga
+: main
+    io b! south a!
+: loop @ send drop loop ;
+
+
+\ demo bouton input
+
+node 600
+?pin
+: init east a! io b! 0x800 dup or !b left !b
+: input ?pin  input ;
+
+\ link 600 708
+: ?pin
+    @b drop 1 ;

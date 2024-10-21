@@ -1,0 +1,141 @@
+{
+	"name": "ga144-Color-Theme",
+	"colors": {
+		"editor.background": "#263238",
+		"editor.foreground": "#eeffff",
+		"activityBarBadge.background": "#007acc",
+		"sideBarTitle.foreground": "#bbbbbb"
+	},
+	"tokenColors": [		
+		{
+			"name": "comment",
+			"scope": [
+				"comment_slash",
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#805be9",
+			},
+		},
+		{
+			"name": "comment",
+			"scope": [
+				"comment_diese",
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#BEE95BFF",
+			},
+		},
+		{
+			"name": "comment",
+			"scope": [
+				"comment_line_parantheses",
+			],
+			"settings": {
+				"fontStyle": "italic bold",
+				"foreground": "#f0c980",
+			},
+		},
+		{
+			"name": "comment",
+			"scope": [
+				"comment_unslash",
+			],
+			"settings": {
+				"fontStyle": "italic bold",
+				"foreground": "#f58a11",
+			},
+		},
+		{
+			"name": "transfer",
+			"scope": [
+				"transfer",
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#4f68f5",
+			},
+		},
+		{
+			"name": "data",
+			"scope": [
+				"data",
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#44fe16",
+			},
+		},
+		{
+			"name": "alu",
+			"scope": [
+				"alu",
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#aadfcf",
+			},
+		},
+		{
+			"name": "interface",
+			"scope": [
+				"interface",
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#d31fda",
+			},
+		},
+		{
+			"name": "newword",
+			"scope": [
+				"newword",
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#f02222",
+			},
+		},
+		{
+			"name": "node",
+			"scope": [
+				"node",
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#f3f724",
+			},
+		},
+		{
+			"name": "other",
+			"scope": [
+				"other",
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#eaa9f6",
+			},
+		},
+		{
+			"name": "hexa",
+			"scope": [
+				"hexa",
+			],
+			"settings": {
+				"fontStyle": "italic bold",
+				"foreground": "#ffffff",
+			},
+		},
+		{
+			"name": "number",
+			"scope": [
+				"number",
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#ffffff",
+			},
+		},
+	]
+}
