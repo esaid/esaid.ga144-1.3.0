@@ -59,5 +59,3 @@ f     or !b @p .           236306        or !b @p .
 : loop
 19    @ call 0             13824         @ call 0
 1a    drop jump 19         243481        drop jump 19
-Le répertoire courant est : /home/esaid/.vscode/extensions/esaid.ga144-1.2.0
-Exécution de : ga144_script/linux/./ga avec les arguments : ['/home/esaid/.vscode/extensions/esaid.ga144-1.2.0/examples/boutoninput_.ga']

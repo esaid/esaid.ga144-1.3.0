@@ -6,7 +6,7 @@ include 708serial.ga
 : main
     io b! south a!
     
-    : loop @ send drop loop ;
+: loop @ send drop loop ;
 
 \ demo bouton input
 
