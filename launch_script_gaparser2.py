@@ -8,9 +8,9 @@ print("Le répertoire courant est :", os.getcwd())
 
 # Déterminer le système d'exploitation
 if os.name == 'nt':  # Windows
-    script = 'ga144_script/windows/gaparser2.exe'  # Assurez-vous que le chemin est correct
+    script = 'ga144_script/windows/gaparser2.exe'  
 if os.name == 'posix':  # Linux ou autre
-    script = 'ga144_script/linux/./gaparser2'  # Assurez-vous que le chemin est correct
+    script = 'ga144_script/linux/./gaparser2'  
 
 # Récupérer les arguments à passer au script
 args = sys.argv[1:]  # Arguments fournis à run_script.py
