@@ -20,4 +20,4 @@ if os.name == 'posix':  # Linux ou autre
 print(f"Exécution de : {script} avec les arguments : {args}")
 
 # Exécuter le script avec les arguments
-subprocess.run('python ' + [script] + args)
+subprocess.run([script] + args)

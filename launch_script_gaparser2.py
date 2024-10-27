@@ -4,13 +4,17 @@ import subprocess
 
 # Afficher le répertoire courant (pour le débogage)
 print("Le répertoire courant est :", os.getcwd())
-
+args = sys.argv[1:]  # Arguments fournis
 
 # Déterminer le système d'exploitation
 if os.name == 'nt':  # Windows
-    script = 'ga144_script/windows/gaparser2.exe'  
+    script = os.path.join( 'ga144_script', 'windows', 'gaparser2.exe')
+    [arg.replace('/', '\\') for arg in args]  # Remplacer / par \ pour Windows
+    
 if os.name == 'posix':  # Linux ou autre
-    script = 'ga144_script/linux/./gaparser2'  
+    script = os.path.join('ga144_script','linux', './gaparser2')
+    [arg.replace('\\', '/') for arg in args]   # Remplacer \ par / pour Linux
+     
 
 # Récupérer les arguments à passer au script
 args = sys.argv[1:]  # Arguments fournis à run_script.py
