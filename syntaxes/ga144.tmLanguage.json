@@ -9,7 +9,7 @@
 		"ga",
 		"f"
 	],
-	"$schema": "",
+	
 	"name": "GA144 Programming Language",
 	"scopeName": "source.ga144",
 	"patterns": [
@@ -31,7 +31,6 @@
 		{
 			"include": "#newword"
 		},
-		
 		{
 			"include": "#node"
 		},
