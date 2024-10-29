@@ -30,7 +30,7 @@ select the ga144.vsix file.
 compilation CTRL + Shift + B
 select PreCompiler_ga144_code  ( use gaparser2 )   and after Compiler_ga144_code ( use ga-tools )
 or select  ## GA144 Compilation All
-work only on  Linux  ( For the moment ! )
+work on  Linux and Windows 
 
 Extension GA144 select the theme 
 
