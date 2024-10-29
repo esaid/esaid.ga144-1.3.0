@@ -22,12 +22,12 @@ http://esaid.free.fr/tutoriel_arrayforth/Ga144_pcb/Ga144_kit.html
 ![Screenshoot](https://github.com/esaid/ga144_vscode/raw/main/images/example.png)
 
 ## Requirements
-installation in vscode CTRL + Shift + P  
+### installation in vscode CTRL + Shift + P  
 install from vsix
 select the ga144.vsix file.
 
 ## Extension Settings
-compilation CTRL + Shift + B
+### compilation CTRL + Shift + B
 select PreCompiler_ga144_code  ( use gaparser2 )   and after Compiler_ga144_code ( use ga-tools )
 or select  
 ### GA144 Compilation All
