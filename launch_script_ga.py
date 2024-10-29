@@ -10,10 +10,10 @@ args = sys.argv[1:]  # Arguments fournis à run_script.py
 # Déterminer le système d'exploitation
 if os.name == 'nt':  # Windows
     script = os.path.join( 'ga144_script', 'windows', 'ga.exe')
-    [arg.replace('/', '\\') for arg in args]  # Remplacer / par \ pour Windows
+    args = [arg.replace('/', '\\') for arg in args]  # Remplacer / par \ pour Windows
 if os.name == 'posix':  # Linux ou autre
     script = os.path.join('ga144_script','linux', './ga')
-    [arg.replace('\\', '/') for arg in args]   # Remplacer \ par / pour Linux
+    args = [arg.replace('\\', '/') for arg in args]   # Remplacer \ par / pour Linux
 
 
 # Afficher le script et les arguments (pour le débogage)
