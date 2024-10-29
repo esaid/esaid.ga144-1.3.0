@@ -1,3 +1,5 @@
 {
-    "workbench.colorTheme": "GA144 Default Theme (dark)"
+    "ga144": "GA144 Default Theme (dark)",
+    "python": "Default Dark+",
+    "workbench.colorTheme": "Default Dark+"
 }
