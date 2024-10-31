@@ -12,7 +12,9 @@
 		"url": "https://github.com/esaid"
 	},
 	"devDependencies": {
-		"typescript": "^5.2.2"
+		"@types/vscode": "^1.95.0",
+		"typescript": "^5.2.2",
+		"vscode": "^1.1.37"
 	},
 	"engines": {
 		"vscode": "^1.83.0"
@@ -54,6 +56,10 @@
 			{
 				"command": "myExtension.sayHello",
 				"title": "Say Hello"
+			},
+			{
+				"command": "extension.demanderPortSerie",
+				"title": "Serial Port"
 			}
 		],
 		"languages": [
