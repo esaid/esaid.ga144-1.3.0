@@ -13,8 +13,8 @@
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.95.0",
-		"typescript": "^5.2.2",
-		"vscode": "^1.1.37"
+		"typescript": "^5.2.2"
+		
 	},
 	"engines": {
 		"vscode": "^1.83.0"
@@ -57,7 +57,11 @@
 			{
 				"command": "myExtension.sayHello",
 				"title": "Say Hello"
-			}
+			},
+			{
+                "command": "my-extension.openWebview",
+                "title": "GA144 Configuration Serial Port"
+            }
 		],
 		"languages": [
 			{
