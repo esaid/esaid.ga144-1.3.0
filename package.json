@@ -3,7 +3,7 @@
 	"displayName": "ga144",
 	"description": "GA144  ( Forth ) programming language",
 	"icon": "images/colorforth.png",
-	"version": "1.4.0",
+	"version": "1.3.0",
 	"main": "src/extension.js",
 	"publisher": "esaid",
 	"author": {
@@ -12,9 +12,8 @@
 		"url": "https://github.com/esaid"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.95.0",
+		"@types/vscode": "^1.83.0",
 		"typescript": "^5.2.2"
-		
 	},
 	"engines": {
 		"vscode": "^1.83.0"
@@ -30,14 +29,18 @@
 					"id": "ga144-explorer",
 					"title": "GA144 explorer",
 					"icon": "$(sync~spin)"
+											
+				
 				}
 			]
 		},
-		"views": {
+		"views": {							
+			
 			"ga144-explorer": [
 				{
 					"id": "myView",
 					"name": "My Custom View"
+					
 				},
 				{
 					"id": "CompilationView",
@@ -59,9 +62,9 @@
 				"title": "Say Hello"
 			},
 			{
-                "command": "my-extension.openWebview",
-                "title": "GA144 Configuration Serial Port"
-            }
+				"command": "my-extension.openWebview",
+				"title": "GA144 Configuration Serial Port"
+			}
 		],
 		"languages": [
 			{
