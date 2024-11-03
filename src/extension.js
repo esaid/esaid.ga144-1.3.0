@@ -1,6 +1,7 @@
 const vscode = require('vscode');
 
 function activate(context) {
+    
     let disposable = vscode.commands.registerCommand('my-extension.openWebview', function () {
         const panel = vscode.window.createWebviewPanel(
             'myWebview', // Identifiant interne de la Webview
