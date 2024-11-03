@@ -52,14 +52,11 @@
 		"activationEvents": [
 			"*"
 		],
+		"main": "./out/extension.js",
 		"commands": [
 			{
 				"command": "myExtension.sayHello",
 				"title": "Say Hello"
-			},
-			{
-				"command": "extension.demanderPortSerie",
-				"title": "Serial Port"
 			}
 		],
 		"languages": [
