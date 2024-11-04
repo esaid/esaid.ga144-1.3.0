@@ -84,7 +84,7 @@
 		"alu": {
 			"patterns": [
 				{
-					"match": "(?<=^|\\s)(?i:(\\+\\*|(2\\*)|(2\\/)|\\-|\\+|and|or|drop|dup|pop|>r|r>|over|a|push|b!|a!|inv))(?=\\s)",
+					"match": "(?<=^|\\s)(?i:(\\+\\*|(2\\*)|(2\\/)|(1\\+)|(1\\-)|\\-|\\+|and|or|drop|dup|pop|nip|swap|rot|tuck|over|pick|>r|r>|over|a|push|b!|a!|inv))(?=\\s)",
 					"name": "alu.ga144"
 				}
 			]

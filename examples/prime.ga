@@ -9,6 +9,9 @@ node 500
 
 : SQRT  ( n -- n' )
     1 BEGIN
+        1+
+        NIP
+        1-
         DUP ROT OVER /   \ n1 n2 n3 -- n1 n2 q
         ROT +            \ n1 q n2 -- n1 s
         2/              \ n1 s -- n1 s'
