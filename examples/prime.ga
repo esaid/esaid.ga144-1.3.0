@@ -30,7 +30,7 @@ node 500
         EXIT 
     THEN
     
-    DUP 2 = IF 
+    DUP 2 = IF
         DROP TRUE 
         EXIT 
     THEN
