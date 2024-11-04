@@ -68,7 +68,7 @@
 		"transfer": {
 			"patterns": [
 				{
-					"match": "(;|ex|jump|call|unext|next|if|-if|then|else|for|loop|while|repeat|until|begin|do|leave|EX|JUMP|CALL|UNEXT|NEXT|IF|-IF|THEN|ELSE|FOR|LOOP|WHILE|REPEAT|UNTIL|BEGIN|DO|LEAVE)(?=\\s)",
+					"match": "(;|ex|jump|call|unext|next|if|\\-if|then|else|for|loop|while|repeat|until|begin|do|leave|EX|JUMP|CALL|UNEXT|NEXT|IF|\\-IF|THEN|ELSE|FOR|LOOP|WHILE|REPEAT|UNTIL|BEGIN|DO|LEAVE)(?=\\s)",
 					"name": "transfer.ga144"
 				}
 			]
@@ -116,7 +116,7 @@
 		"other": {
 			"patterns": [
 				{
-					"match": "\\b(link|node|require|include|boot|org|true|TRUE|false|FALSE|mod|MOD|mod/|MOD/)\\b",
+					"match": "\\b(link|node|require|include|boot|org|true|TRUE|false|FALSE|mod|MOD|(mod\\/)|(MOD\\/))\\b",
 					"name": "other.ga144"
 				}
 			]
