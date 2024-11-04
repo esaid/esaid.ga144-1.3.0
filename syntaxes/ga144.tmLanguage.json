@@ -68,7 +68,7 @@
 		"transfer": {
 			"patterns": [
 				{
-					"match": "(;|ex|jump|call|unext|next|if|-if|then|else|for|loop|while)(?=\\s)",
+					"match": "(;|ex|jump|call|unext|next|if|-if|then|else|for|loop|while|repeat|until|begin|do|(\\+do)|EX|JUMP|CALL|UNEXT|NEXT|IF|-IF|THEN|ELSE|FOR|LOOP|WHILE|REPEAT|UNTIL|BEGIN|DO|(\\+DO))(?=\\s)",
 					"name": "transfer.ga144"
 				}
 			]
