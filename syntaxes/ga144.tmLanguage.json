@@ -100,7 +100,7 @@
 		"newword": {
 			"patterns": [
 				{
-					"match": "(\\:\\s(-?)\\w*\\W)(?=\\s)",
+					"match": "(\\:\\s(-?)\\w*\\W*)(?=\\s)",
 					"name": "newword.ga144"
 				}
 			]
