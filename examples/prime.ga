@@ -1,0 +1,52 @@
+
+\ demo prime
+
+node 500
+
+\ Vérifie si un nombre sur la pile est premier
+\ Entrée: nombre à tester
+\ Sortie: flag (true si premier, false sinon)
+
+: SQRT  ( n -- n' )
+    1 BEGIN
+        DUP ROT OVER /   \ n1 n2 n3 -- n1 n2 q
+        ROT +            \ n1 q n2 -- n1 s
+        2/              \ n1 s -- n1 s'
+        OVER OVER -     
+        ABS 1 <=        
+    UNTIL
+    NIP 
+;
+: DIVISIBLE?  ( n1 n2 -- flag )
+    MOD 0=
+;
+
+: PRIME? ( n -- flag )
+    DUP 2 < IF 
+        DROP FALSE 
+        EXIT 
+    THEN
+    
+    DUP 2 = IF 
+        DROP TRUE 
+        EXIT 
+    THEN
+    
+    DUP 2 MOD 0= IF 
+        DROP FALSE 
+        EXIT 
+    THEN
+    
+    TRUE SWAP        \ flag n
+    DUP SQRT 1+     \ flag n sqrt
+    3 DO            \ flag n
+        DUP I DIVISIBLE? IF
+            DROP FALSE LEAVE
+        THEN
+    2 +LOOP
+    NIP
+;
+
+\ Exemples d'utilisation :
+\ 17 PRIME? . \ Affiche -1 (vrai)
+\ 24 PRIME? . \ Affiche 0 (faux)
