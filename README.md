@@ -36,7 +36,7 @@ work on  Linux and Windows
 Extension GA144 select the theme 
 
 ## Known Issues
-
+add uppercase words
 node number , number in yellow color , node number-number  
 any number in yellow color --> fix it , now any number except a node in white color
 
@@ -44,11 +44,11 @@ any number in yellow color --> fix it , now any number except a node in white co
 ## Release Notes
 
 
-### 1.1.0
+### 1.3.0
 
 Initial release of 1.0.0
 1.1.0 fix any number except a node in white color
-
+1.3.0  compilation CTRL + Shift + B
 
 ## Working with Markdown
 
