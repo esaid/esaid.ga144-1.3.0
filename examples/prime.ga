@@ -20,6 +20,7 @@ node 500
         ABS 1 <=        
     UNTIL
     NIP 
+    
 ;
 : DIVISIBLE?  ( n1 n2 -- flag )
     MOD 0=

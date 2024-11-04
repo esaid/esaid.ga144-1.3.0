@@ -116,7 +116,7 @@
 		"other": {
 			"patterns": [
 				{
-					"match": "\\b(link|node|require|include|boot|org|true|TRUE|false|FALSE|abs|ABS|mod|MOD|(\\/mod)|(\\/MOD))\\b",
+					"match": "\\b(link|node|require|include|boot|org|true|TRUE|false|FALSE|abs|ABS|mod|MOD)\\b",
 					"name": "other.ga144"
 				}
 			]
