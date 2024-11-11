@@ -1,8 +1,12 @@
 const vscode = require('vscode');
 
 function activate(context) {
+    let disposableHello = vscode.commands.registerCommand('myExtension.sayHello', function () {
+        vscode.window.showInformationMessage('Compilation');
+    });
     
-    let disposable = vscode.commands.registerCommand('my-extension.openWebview', function () {
+    let disposableSerialPort = vscode.commands.registerCommand('myExtension.Ga144_Serial_Port', function () {
+        vscode.window.showInformationMessage('Configuration Serial Port');
         const panel = vscode.window.createWebviewPanel(
             'myWebview', // Identifiant interne de la Webview
             'Configuration Serial Port', // Titre de la Webview
@@ -30,7 +34,7 @@ function activate(context) {
 
     });
 
-    context.subscriptions.push(disposable);
+    context.subscriptions.push(disposableHello, disposableSerialPort);
 }
 
 function getWebviewContent() {
