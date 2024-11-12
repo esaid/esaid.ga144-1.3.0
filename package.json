@@ -12,9 +12,8 @@
 		"url": "https://github.com/esaid"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.95.0",
-		"@types/node": "22.9.0",
-		"typescript": "^5.2.2"
+		"@types/vscode": "^1.95.0"
+		
 	},
 	"engines": {
 		"vscode": "^1.83.0"
@@ -43,9 +42,10 @@
 			]
 		},
 		"activationEvents": [
-			
+			"onStartupFinished", 
 			"onCommand:myExtension.sayHello",
 			"onCommand:myExtension.Ga144_Serial_Port"
+			
 		],
 		"commands": [
 			{

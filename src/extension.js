@@ -34,7 +34,8 @@ function activate(context) {
 
     });
 
-    context.subscriptions.push(disposableHello, disposableSerialPort);
+    context.subscriptions.push(disposableHello);
+    context.subscriptions.push(disposableSerialPort);
 }
 
 function getWebviewContent() {
