@@ -38,19 +38,12 @@
 				{
 					"id": "myView",
 					"name": "My Custom View"
-				},
-				{
-					"id": "CompilationView",
-					"name": "Compilation"
-				},
-				{
-					"id": "ForthView",
-					"name": "Forth"
 				}
+				
 			]
 		},
 		"activationEvents": [
-			"onStartupFinished",
+			
 			"onCommand:myExtension.sayHello",
 			"onCommand:myExtension.Ga144_Serial_Port"
 		],
