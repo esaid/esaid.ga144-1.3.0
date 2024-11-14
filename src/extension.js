@@ -4,6 +4,9 @@ function activate(context) {
     let disposableHello = vscode.commands.registerCommand('myExtension.sayHello', function () {
         vscode.window.showInformationMessage('Compilation');
     });
+    let disposableConfigurationSerialPort = vscode.commands.registerCommand('myExtension.MyConfigurationSerialPort', function () {
+        vscode.window.showInformationMessage(vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort') +  ' Configuration Serial Port');
+    })
     
     let disposableSerialPort = vscode.commands.registerCommand('myExtension.Ga144_Serial_Port', function () {
         vscode.window.showInformationMessage('Configuration Serial Port');
@@ -34,8 +37,9 @@ function activate(context) {
 
     });
 
-    context.subscriptions.push(disposableHello);
-    context.subscriptions.push(disposableSerialPort);
+    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort);
+   
+
 }
 
 function getWebviewContent() {
