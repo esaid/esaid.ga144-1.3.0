@@ -45,6 +45,11 @@
 					"id": "ga144-send",
 					"title": "Programming GA144",
 					"icon": "$(run-all)"
+				},
+				{
+					"id": "ga144-compile",
+					"title": "Compile code GA144",
+					"icon": "$(gear~spin)"
 				}
 			]
 		},
@@ -59,6 +64,12 @@
 				{
 					"id": "myViewSend",
 					"name": "Send"
+				}
+			],
+			"ga144-compile": [
+				{
+					"id": "myViewCompile",
+					"name": "Compile"
 				}
 			]
 		},
