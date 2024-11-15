@@ -2,7 +2,7 @@ const vscode = require('vscode');
 
 function activate(context) {
 
-    let view = vscode.window.registerTreeDataProvider('myView', {
+    let view = vscode.window.registerTreeDataProvider('myViewExplorer', {
         getChildren() {
             return ['Configuration Serial Port', 'Read Serial port', 'Readme'];
         },
@@ -26,7 +26,13 @@ function activate(context) {
                     title: ''
                 };
             }
+            else if (element === 'Readme') {
+                treeItem.command = {
 
+                    command: 'myExtension.Readme',
+                    title: ''
+                };
+            }
             return treeItem;
         }
 
@@ -34,7 +40,7 @@ function activate(context) {
 
 
     let disposableHello = vscode.commands.registerCommand('myExtension.sayHello', function () {
-        vscode.window.showInformationMessage('Compilation');
+        vscode.window.showInformationMessage('Hello World!');
 
 
     });
@@ -44,7 +50,9 @@ function activate(context) {
 
         }, 1000)
     });
-
+    let disposableReadme = vscode.commands.registerCommand('myExtension.Readme', function () {
+        vscode.window.showInformationMessage('find in -->  Parameter : My configuration Serial Port');
+    });
 
 
     let disposableSerialPort = vscode.commands.registerCommand('myExtension.Ga144_Serial_Port', function () {
@@ -83,7 +91,7 @@ function activate(context) {
 
     });
 
-    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, view);
+    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort,  disposableReadme,view);
 
 
 }

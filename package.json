@@ -46,7 +46,7 @@
 		"views": {
 			"ga144-explorer": [
 				{
-					"id": "myView",
+					"id": "myViewExplorer",
 					"name": "GA144 View"
 
 				}
