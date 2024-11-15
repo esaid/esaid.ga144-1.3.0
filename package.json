@@ -38,8 +38,13 @@
 			"activitybar": [
 				{
 					"id": "ga144-explorer",
-					"title": "GA144 explorer",
+					"title": "~~~ GA144 ~~~",
 					"icon": "images/usb_serial3.svg"
+				},
+				{
+					"id": "ga144-send",
+					"title": "Programming GA144",
+					"icon": "$(run-all)"
 				}
 			]
 		},
@@ -47,8 +52,13 @@
 			"ga144-explorer": [
 				{
 					"id": "myViewExplorer",
-					"name": "GA144 View"
-
+					"name": "Configuration"
+				}
+			],
+			"ga144-send": [
+				{
+					"id": "myViewSend",
+					"name": "Send"
 				}
 			]
 		},
