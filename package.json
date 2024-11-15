@@ -54,7 +54,7 @@
 				{
 					"id": "ga144-simulation",
 					"title": "Simulation code GA144",
-					"icon": "$(gripper)"
+					"icon": "$(debug-console)"
 				}
 			]
 		},
