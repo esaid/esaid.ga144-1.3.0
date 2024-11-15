@@ -23,7 +23,7 @@
 		},
 		{
 			"label": "Compiler_ga144_code",  // Le fichier _.ga à compiler avec ga  // Le fichier .f de sortie
-			"type": "shell",
+			"type": "shell",			
 			"command": "python",
 			"args": [
 				"${workspaceFolder}/launch_script_ga.py",

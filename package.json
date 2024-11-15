@@ -46,7 +46,7 @@
 		"views": {
 			"ga144-explorer": [
 				{
-					"id": "myview",
+					"id": "myView",
 					"name": "GA144 View"
 
 				}
@@ -59,16 +59,19 @@
 		],
 		"commands": [
 			{
+				"category": "GA144",
 				"command": "myExtension.sayHello",
 				"title": "Say Hello"
 			},
 			{
+				"category": "GA144",
 				"command": "myExtension.Ga144_Serial_Port",
 				"title": "GA144 Configuration Serial Port"
 			},
 			{
+				"category": "GA144",
 				"command": "myExtension.MyConfigurationSerialPort",
-				"title": "Serial Port Configuration"
+				"title": "on Serial Port"
 			}
 		],
 		"languages": [

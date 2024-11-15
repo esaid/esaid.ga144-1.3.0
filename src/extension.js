@@ -1,15 +1,54 @@
 const vscode = require('vscode');
 
 function activate(context) {
+
+    let view = vscode.window.registerTreeDataProvider('myView', {
+        getChildren() {
+            return ['Configuration Serial Port', 'Read Serial port', 'Readme'];
+        },
+        getTreeItem(element) {
+            let treeItem = {
+                label: element,
+                collapsibleState: vscode.TreeItemCollapsibleState.None,
+            };
+
+            if (element === 'Configuration Serial Port') {
+                treeItem.command = {
+
+                    command: 'myExtension.Ga144_Serial_Port',
+                    title: 'Configuration Serial Port'
+                };
+            }
+            else if (element === 'Read Serial port') {
+                treeItem.command = {
+
+                    command: 'myExtension.MyConfigurationSerialPort',
+                    title: ''
+                };
+            }
+
+            return treeItem;
+        }
+
+    });
+
+
     let disposableHello = vscode.commands.registerCommand('myExtension.sayHello', function () {
         vscode.window.showInformationMessage('Compilation');
+
+
     });
     let disposableConfigurationSerialPort = vscode.commands.registerCommand('myExtension.MyConfigurationSerialPort', function () {
-        vscode.window.showInformationMessage(vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort') +  ' Configuration Serial Port');
-    })
-    
+        vscode.window.showInformationMessage(vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort') + ' on Serial Port');
+        setTimeout(() => {
+
+        }, 1000)
+    });
+
+
+
     let disposableSerialPort = vscode.commands.registerCommand('myExtension.Ga144_Serial_Port', function () {
-        vscode.window.showInformationMessage('Configuration Serial Port');
+
         const panel = vscode.window.createWebviewPanel(
             'myWebview', // Identifiant interne de la Webview
             'Configuration Serial Port', // Titre de la Webview
@@ -27,8 +66,15 @@ function activate(context) {
                 switch (message.command) {
                     case 'portInput':
                         vscode.window.showInformationMessage(`Serial Port : ${message.port}`);
+                        setTimeout(() => {
+
+                        }, 1000)
+
+
+                        vscode.workspace.getConfiguration().update('myExtension.MyConfigurationSerialPort', message.port, vscode.ConfigurationTarget.Global);
+
                         break;
-                    
+
                 }
             },
             undefined,
@@ -37,8 +83,8 @@ function activate(context) {
 
     });
 
-    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort);
-   
+    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, view);
+
 
 }
 
