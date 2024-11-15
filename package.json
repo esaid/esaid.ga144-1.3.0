@@ -50,6 +50,11 @@
 					"id": "ga144-compile",
 					"title": "Compile code GA144",
 					"icon": "$(gear~spin)"
+				},
+				{
+					"id": "ga144-simulation",
+					"title": "Simulation code GA144",
+					"icon": "$(gripper)"
 				}
 			]
 		},
@@ -70,6 +75,12 @@
 				{
 					"id": "View.ga144-compile",
 					"name": "Compile"
+				}
+			],
+			"ga144-simulation": [
+				{
+					"id": "View.ga144-simulation",
+					"name": "Simulation"
 				}
 			]
 		},
