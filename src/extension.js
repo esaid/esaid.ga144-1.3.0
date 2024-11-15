@@ -2,7 +2,7 @@ const vscode = require('vscode');
 
 function activate(context) {
 
-    let view = vscode.window.registerTreeDataProvider('myViewExplorer', {
+    let viewConfiguration = vscode.window.registerTreeDataProvider('View.ga144-configuration', {
         getChildren() {
             return ['Configuration Serial Port', 'Read Serial port', 'Readme'];
         },
@@ -91,7 +91,7 @@ function activate(context) {
 
     });
 
-    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort,  disposableReadme,view);
+    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration);
 
 
 }
