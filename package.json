@@ -104,6 +104,21 @@
 				"category": "GA144",
 				"command": "myExtension.MyConfigurationSerialPort",
 				"title": "on Serial Port"
+			},
+			{
+				"category": "GA144",
+				"command": "myExtension.Ga144_Send",
+				"title": "GA144 Send"
+			},
+			{
+				"category": "GA144",
+				"command": "myExtension.Ga144_Compile",
+				"title": "GA144 Compile"
+			},
+			{
+				"category": "GA144",
+				"command": "myExtension.Ga144_Simulation",
+				"title": "GA144 Simulation"
 			}
 		],
 		"languages": [

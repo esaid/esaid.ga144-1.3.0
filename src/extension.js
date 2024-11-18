@@ -1,10 +1,29 @@
 const vscode = require('vscode');
 
 function activate(context) {
+    let viewCompile = vscode.window.registerTreeDataProvider('View.ga144-compile', {
+        getChildren() {
+            return ['Compilation'];	
+        },
+        getTreeItem(element) {
+            let treeItem = {
+                label: element,
+                collapsibleState: vscode.TreeItemCollapsibleState.None,
+            };
 
+            if (element === 'Compilation') {
+                treeItem.command = {
+
+                    command: 'myExtension.Ga144_Compile',
+                    title: 'Compilation'
+                };
+            }
+            return treeItem;
+        }   
+    })
     let viewConfiguration = vscode.window.registerTreeDataProvider('View.ga144-configuration', {
         getChildren() {
-            return ['Configuration Serial Port', 'Read Serial port', 'Readme'];
+            return ['Configuration Serial Port', 'Read Serial port', 'Readme'];	
         },
         getTreeItem(element) {
             let treeItem = {
@@ -41,19 +60,23 @@ function activate(context) {
 
     let disposableHello = vscode.commands.registerCommand('myExtension.sayHello', function () {
         vscode.window.showInformationMessage('Hello World!');
-
-
     });
+
     let disposableConfigurationSerialPort = vscode.commands.registerCommand('myExtension.MyConfigurationSerialPort', function () {
         vscode.window.showInformationMessage(vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort') + ' on Serial Port');
         setTimeout(() => {
-
         }, 1000)
     });
+
     let disposableReadme = vscode.commands.registerCommand('myExtension.Readme', function () {
         vscode.window.showInformationMessage('find in -->  Parameter : My configuration Serial Port');
+       
     });
 
+    let disposableCompile = vscode.commands.registerCommand('myExtension.Ga144_Compile', function () {
+        vscode.commands.executeCommand('workbench.action.tasks.runTask', 'GA144 Compilation All');
+        vscode.window.showInformationMessage('Compilation All');
+    });
 
     let disposableSerialPort = vscode.commands.registerCommand('myExtension.Ga144_Serial_Port', function () {
 
@@ -63,9 +86,11 @@ function activate(context) {
             vscode.ViewColumn.One, // Panneau dans lequel la Webview s'affiche
             {
                 enableScripts: true // Autorise JavaScript dans la Webview
-            }
-        );
+            });
+        
 
+
+        
         panel.webview.html = getWebviewContent();
 
         // Écoute des messages de la Webview
@@ -91,7 +116,7 @@ function activate(context) {
 
     });
 
-    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration);
+    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, disposableCompile);
 
 
 }
