@@ -1,6 +1,28 @@
 const vscode = require('vscode');
 
 function activate(context) {
+
+let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
+    getChildren() {
+        return ['Send'];	
+    },
+    getTreeItem(element) {
+        let treeItem = {
+        label: element,
+        collapsibleState: vscode.TreeItemCollapsibleState.None,
+        };
+
+        if (element === 'Send') {
+            treeItem.command = {
+
+                command: 'myExtension.Ga144_Send',
+                title: 'Send'
+            };
+        }
+        return treeItem;    
+    }
+});
+
     let viewCompile = vscode.window.registerTreeDataProvider('View.ga144-compile', {
         getChildren() {
             return ['Compilation'];	
@@ -20,7 +42,7 @@ function activate(context) {
             }
             return treeItem;
         }   
-    })
+    });
     let viewConfiguration = vscode.window.registerTreeDataProvider('View.ga144-configuration', {
         getChildren() {
             return ['Configuration Serial Port', 'Read Serial port', 'Readme'];	
@@ -78,6 +100,11 @@ function activate(context) {
         vscode.window.showInformationMessage('Compilation All');
     });
 
+    let disposableSend = vscode.commands.registerCommand('myExtension.Ga144_Send', function () {
+        vscode.commands.executeCommand('workbench.action.tasks.runTask', 'GA144 Send');
+        vscode.window.showInformationMessage('Send');
+    });
+
     let disposableSerialPort = vscode.commands.registerCommand('myExtension.Ga144_Serial_Port', function () {
 
         const panel = vscode.window.createWebviewPanel(
@@ -86,13 +113,9 @@ function activate(context) {
             vscode.ViewColumn.One, // Panneau dans lequel la Webview s'affiche
             {
                 enableScripts: true // Autorise JavaScript dans la Webview
-            });
-        
-
-
-        
+            });      
+       
         panel.webview.html = getWebviewContent();
-
         // Écoute des messages de la Webview
         panel.webview.onDidReceiveMessage(
             message => {
@@ -102,22 +125,16 @@ function activate(context) {
                         setTimeout(() => {
 
                         }, 1000)
-
-
                         vscode.workspace.getConfiguration().update('myExtension.MyConfigurationSerialPort', message.port, vscode.ConfigurationTarget.Global);
-
                         break;
-
                 }
             },
             undefined,
             context.subscriptions
         );
-
     });
 
-    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, disposableCompile);
-
+    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, viewCompile,viewSend, disposableCompile);
 
 }
 

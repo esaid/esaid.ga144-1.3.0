@@ -39,6 +39,17 @@
 			"detail": "ga144 Forth compiler"
 		},
 		{
+			"label": "GA144 Send",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"${workspaceFolder}/source_python/ga.py" ,				
+				"${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga",
+				" --port ${myExtension.MyConfigurationSerialPort}",			
+				" --baud 115200"
+			]
+		},
+		{
 			"label": "GA144 Compilation All",
 			"dependsOn": [
 				"PreCompiler_ga144_code",
