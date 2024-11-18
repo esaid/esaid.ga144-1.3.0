@@ -44,8 +44,8 @@
 			"command": "python",
 			"args": [
 				"${workspaceFolder}/launch_send_script.py",
-				"${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga"
-				
+				"${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga",
+				"COM4"				
 			]
 		},
 		{
