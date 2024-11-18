@@ -2,7 +2,7 @@ require delay
 require gpio
 \ demo Led Pulse
 
-node 500
+node 600
 : ledpulse
 
     io.h \ led on

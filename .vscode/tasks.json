@@ -2,7 +2,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "PreCompiler_ga144_code",  // Option -f avec l'argument ${file}  Le fichier .ga à pre-compiler	
+			"label": "PreCompiler_ga144_code", // Option -f avec l'argument ${file}  Le fichier .ga à pre-compiler	
 			"type": "shell",
 			"command": "python",
 			"args": [
@@ -12,7 +12,7 @@
 				"-d",
 				"examples/",
 				"-f",
-				"${fileBasename}"	  
+				"${fileBasename}"
 			],
 			"group": {
 				"kind": "build",
@@ -22,8 +22,8 @@
 			"detail": "ga144 Forth pre-compiler"
 		},
 		{
-			"label": "Compiler_ga144_code",  // Le fichier _.ga à compiler avec ga  // Le fichier .f de sortie
-			"type": "shell",			
+			"label": "Compiler_ga144_code", // Le fichier _.ga à compiler avec ga  // Le fichier .f de sortie
+			"type": "shell",
 			"command": "python",
 			"args": [
 				"${workspaceFolder}/launch_script_ga.py",
@@ -43,10 +43,9 @@
 			"type": "shell",
 			"command": "python",
 			"args": [
-				"${workspaceFolder}/source_python/ga.py" ,				
-				"${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga",
-				" --port ${myExtension.MyConfigurationSerialPort}",			
-				" --baud 115200"
+				"${workspaceFolder}/launch_send_script.py",
+				"${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga"
+				
 			]
 		},
 		{
