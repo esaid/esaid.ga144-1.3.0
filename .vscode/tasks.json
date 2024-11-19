@@ -39,16 +39,6 @@
 			"detail": "ga144 Forth compiler"
 		},
 		{
-			"label": "GA144 Send",
-			"type": "shell",
-			"command": "python",
-			"args": [
-				"${workspaceFolder}/launch_send_script.py",
-				"${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga",
-				"COM4"				
-			]
-		},
-		{
 			"label": "GA144 Compilation All",
 			"dependsOn": [
 				"PreCompiler_ga144_code",

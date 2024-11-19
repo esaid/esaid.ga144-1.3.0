@@ -7,7 +7,7 @@ import subprocess
 # print("Le répertoire courant est :", os.getcwd())
 # Récupérer les arguments à passer au script
 args = [sys.argv[1]]  # Arguments fournis à run_script.py
-port = sys.argv[2]
+port = sys.argv[3]
 print(f"argument = {port}")
 # Déterminer le système d'exploitation
 if os.name == 'nt':  # Windows
@@ -16,7 +16,7 @@ if os.name == 'nt':  # Windows
 if os.name == 'posix':  # Linux ou autre
     script = os.path.join('ga144_script','linux', './ga')
     args = [arg.replace('\\', '/') for arg in args]   # Remplacer \ par / pour Linux
-# args = args + ['--port', port]  # Ajouter l'argument exemple '--port COM4'
+args = args + ['--port', port]  # Ajouter l'argument exemple '--port COM4'
 
 
 # Afficher le script et les arguments (pour le débogage)
