@@ -132,7 +132,8 @@
 				"extensions": [
 					"._ga",
 					".ga",
-					".ga_"
+					".ga_",
+					".aforth"
 				],
 				"configuration": "./language-configuration.json"
 			}
