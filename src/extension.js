@@ -103,16 +103,21 @@ let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
     let disposableSend = vscode.commands.registerCommand('myExtension.Ga144_Send', async function () {
         // vscode.commands.executeCommand('workbench.action.tasks.runTask', 'GA144 Send');
         const port = vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort');
+        
         const send_task = new vscode.Task(
+
             { type: 'shell' },
             vscode.TaskScope.Workspace,
             'GA144 Send Programming',
             'customTask',
-            new vscode.ShellExecution('python', ['${workspaceFolder}/launch_send_script_ga.py', '${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga', 'COM4'])
+            new vscode.ShellExecution('python', ['${workspaceFolder}/launch_send_script.py', '${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga', '--port', port])
+            
+        
+        
         );
         vscode.tasks.executeTask(send_task);      
         
-        vscode.window.showInformationMessage('Send --port ${port}');
+        vscode.window.showInformationMessage('Send --port ' + port);
     });
 
     let disposableSerialPort = vscode.commands.registerCommand('myExtension.Ga144_Serial_Port', function () {
@@ -144,7 +149,7 @@ let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
         );
     });
 
-    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, viewCompile,viewSend, disposableCompile);
+    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, viewCompile,viewSend, disposableCompile, disposableSend);
 
 }
 
