@@ -6,9 +6,9 @@
 			"type": "shell",
 			"command": "python",
 			"args": [
-				"${workspaceFolder}/launch_script_gaparser2.py",
+				"${cwd}/launch_script_gaparser2.py",
 				"-dl",
-				"${workspaceFolder}/Libraries/",
+				"${cwd}/Libraries/",
 				"-d",
 				"examples/",
 				"-f",
@@ -26,10 +26,10 @@
 			"type": "shell",
 			"command": "python",
 			"args": [
-				"${workspaceFolder}/launch_script_ga.py",
-				"${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga",
+				"${cwd}/launch_script_ga.py",
+				"${cwd}/examples/${fileBasenameNoExtension}_.ga",
 				">",
-				"${workspaceFolder}/examples/${fileBasenameNoExtension}_assembleur_.ga"
+				"${cwd}/examples/${fileBasenameNoExtension}_assembleur_.ga"
 			],
 			"group": {
 				"kind": "build",
