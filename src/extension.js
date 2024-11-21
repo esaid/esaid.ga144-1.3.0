@@ -6,6 +6,7 @@ function activate(context) {
     const extensionPath = context.extensionPath;
     vscode.window.showInformationMessage('Extension path: ' + extensionPath);
 
+
     let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
         getChildren() {
             return ['Send'];
@@ -106,15 +107,21 @@ function activate(context) {
 
     let disposableSend = vscode.commands.registerCommand('myExtension.Ga144_Send', async function () {
         // vscode.commands.executeCommand('workbench.action.tasks.runTask', 'GA144 Send');
+
+        // Vérifiez si un éditeur est actif
+        const editor = vscode.window.activeTextEditor;
+        const srcPath = path.dirname(editor.document.fileName);
+        vscode.window.showInformationMessage('Source path: ' + srcPath);
         const port = vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort');
         // le chemin absolu du script
         const scriptPath = path.join(extensionPath, 'launch_send_script.py');
+        const filePath = path.join(srcPath, '${fileBasenameNoExtension}_.ga');
         const send_task = new vscode.Task(
             { type: 'shell' },
             vscode.TaskScope.Workspace,
             'GA144 Send Programming',
             'customTask',
-            new vscode.ShellExecution('python', [scriptPath, '${cwd}/example/${fileBasenameNoExtension}_.ga', '--port', port])
+            new vscode.ShellExecution('python', [scriptPath, filePath, '--port', port])
         ); // script to execute from extensionPath and file example from current folder
         vscode.tasks.executeTask(send_task);
         vscode.window.showInformationMessage('Send --port ' + port);
