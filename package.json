@@ -38,7 +38,7 @@
 			"activitybar": [
 				{
 					"id": "ga144-config-serial",
-					"title": "Config for GA144 ",
+					"title": "Config serial for GA144 ",
 					"icon": "images/usb_serial3.svg"
 				},
 				{
