@@ -4,7 +4,7 @@ const path = require('path'); // module for working with file paths
 function activate(context) {
     // Obtenir le chemin d'installation de l'extension
     const extensionPath = context.extensionPath;
-    vscode.window.showInformationMessage('Extension path: ' + extensionPath);
+    // vscode.window.showInformationMessage('Extension path: ' + extensionPath);
 
 
     let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
@@ -111,7 +111,7 @@ function activate(context) {
         // Vérifiez si un éditeur est actif
         const editor = vscode.window.activeTextEditor;
         const srcPath = path.dirname(editor.document.fileName);
-        vscode.window.showInformationMessage('Source path: ' + srcPath);
+        // vscode.window.showInformationMessage('Source path: ' + srcPath);
         const port = vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort');
         // le chemin absolu du script
         const scriptPath = path.join(extensionPath, 'launch_send_script.py');
@@ -121,7 +121,8 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Send Programming',
             'customTask',
-            new vscode.ShellExecution('python', [scriptPath, filePath, '--port', port])
+            // new vscode.ShellExecution('python', [scriptPath, filePath, '--port', port])
+            new vscode.ShellExecution('/home/esaid/anaconda3/bin/python --version')
         ); // script to execute from extensionPath and file example from current folder
         vscode.tasks.executeTask(send_task);
         vscode.window.showInformationMessage('Send --port ' + port);
