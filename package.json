@@ -37,7 +37,7 @@
 		"viewsContainers": {
 			"activitybar": [
 				{
-					"id": "ga144-config",
+					"id": "ga144-config-serial",
 					"title": "Config for GA144 ",
 					"icon": "images/usb_serial3.svg"
 				},
@@ -59,7 +59,7 @@
 			]
 		},
 		"views": {
-			"ga144-config": [
+			"ga144-config-serial": [
 				{
 					"id": "View.ga144-configuration",
 					"name": "Configuration"
