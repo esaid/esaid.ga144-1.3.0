@@ -2,30 +2,30 @@ const vscode = require('vscode');
 
 function activate(context) {
 
-let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
-    getChildren() {
-        return ['Send'];	
-    },
-    getTreeItem(element) {
-        let treeItem = {
-        label: element,
-        collapsibleState: vscode.TreeItemCollapsibleState.None,
-        };
-
-        if (element === 'Send') {
-            treeItem.command = {
-
-                command: 'myExtension.Ga144_Send',
-                title: 'Send'
+    let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
+        getChildren() {
+            return ['Send'];
+        },
+        getTreeItem(element) {
+            let treeItem = {
+                label: element,
+                collapsibleState: vscode.TreeItemCollapsibleState.None,
             };
+
+            if (element === 'Send') {
+                treeItem.command = {
+
+                    command: 'myExtension.Ga144_Send',
+                    title: 'Send'
+                };
+            }
+            return treeItem;
         }
-        return treeItem;    
-    }
-});
+    });
 
     let viewCompile = vscode.window.registerTreeDataProvider('View.ga144-compile', {
         getChildren() {
-            return ['Compilation'];	
+            return ['Compilation'];
         },
         getTreeItem(element) {
             let treeItem = {
@@ -41,11 +41,11 @@ let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
                 };
             }
             return treeItem;
-        }   
+        }
     });
     let viewConfiguration = vscode.window.registerTreeDataProvider('View.ga144-configuration', {
         getChildren() {
-            return ['Configuration Serial Port', 'Read Serial port', 'Readme'];	
+            return ['Configuration Serial Port', 'Read Serial port', 'Readme'];
         },
         getTreeItem(element) {
             let treeItem = {
@@ -92,7 +92,7 @@ let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
 
     let disposableReadme = vscode.commands.registerCommand('myExtension.Readme', function () {
         vscode.window.showInformationMessage('find in -->  Parameter : My configuration Serial Port');
-       
+
     });
 
     let disposableCompile = vscode.commands.registerCommand('myExtension.Ga144_Compile', function () {
@@ -103,7 +103,7 @@ let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
     let disposableSend = vscode.commands.registerCommand('myExtension.Ga144_Send', async function () {
         // vscode.commands.executeCommand('workbench.action.tasks.runTask', 'GA144 Send');
         const port = vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort');
-        
+
         const send_task = new vscode.Task(
 
             { type: 'shell' },
@@ -111,12 +111,12 @@ let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
             'GA144 Send Programming',
             'customTask',
             new vscode.ShellExecution('python', ['${cwd}/launch_send_script.py', '${cwd}/examples/${fileBasenameNoExtension}_.ga', '--port', port])
-            
-        
-        
+
+
+
         );
-        vscode.tasks.executeTask(send_task);      
-        
+        vscode.tasks.executeTask(send_task);
+
         vscode.window.showInformationMessage('Send --port ' + port);
     });
 
@@ -128,8 +128,8 @@ let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
             vscode.ViewColumn.One, // Panneau dans lequel la Webview s'affiche
             {
                 enableScripts: true // Autorise JavaScript dans la Webview
-            });      
-       
+            });
+
         panel.webview.html = getWebviewContent();
         // Écoute des messages de la Webview
         panel.webview.onDidReceiveMessage(
@@ -149,7 +149,7 @@ let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
         );
     });
 
-    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, viewCompile,viewSend, disposableCompile, disposableSend);
+    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, viewCompile, viewSend, disposableCompile, disposableSend);
 
 }
 
