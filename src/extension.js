@@ -1,6 +1,10 @@
 const vscode = require('vscode');
+const path = require('path'); // module for working with file paths
 
 function activate(context) {
+    // Obtenir le chemin d'installation de l'extension
+    const extensionPath = context.extensionPath;
+    vscode.window.showInformationMessage('Extension path: ' + extensionPath);
 
     let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
         getChildren() {
@@ -108,8 +112,8 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Send Programming',
             'customTask',
-            new vscode.ShellExecution('python', ['${cwd}/launch_send_script.py', '${cwd}/examples/${fileBasenameNoExtension}_.ga', '--port', port])
-        );
+            new vscode.ShellExecution('python', ['${extensionPath}/launch_send_script.py', '${cwd}/${fileBasenameNoExtension}_.ga', '--port', port])
+        ); // script to execute from extensionPath and file example from current folder
         vscode.tasks.executeTask(send_task);
         vscode.window.showInformationMessage('Send --port ' + port);
     });
