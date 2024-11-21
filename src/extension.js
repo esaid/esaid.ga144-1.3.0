@@ -103,20 +103,14 @@ function activate(context) {
     let disposableSend = vscode.commands.registerCommand('myExtension.Ga144_Send', async function () {
         // vscode.commands.executeCommand('workbench.action.tasks.runTask', 'GA144 Send');
         const port = vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort');
-
         const send_task = new vscode.Task(
-
             { type: 'shell' },
             vscode.TaskScope.Workspace,
             'GA144 Send Programming',
             'customTask',
             new vscode.ShellExecution('python', ['${cwd}/launch_send_script.py', '${cwd}/examples/${fileBasenameNoExtension}_.ga', '--port', port])
-
-
-
         );
         vscode.tasks.executeTask(send_task);
-
         vscode.window.showInformationMessage('Send --port ' + port);
     });
 
