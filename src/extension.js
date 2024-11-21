@@ -121,9 +121,9 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Send Programming',
             'customTask',
-            // new vscode.ShellExecution('python', [scriptPath, filePath, '--port', port])
+            new vscode.ShellExecution('python', [scriptPath, filePath, '--port', port])
             // new vscode.ShellExecution('/home/esaid/anaconda3/bin/python --version')
-            new vscode.ShellExecution('python --version')
+
         ); // script to execute from extensionPath and file example from current folder
         vscode.tasks.executeTask(send_task);
         vscode.window.showInformationMessage('Send --port ' + port);
