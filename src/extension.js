@@ -110,7 +110,7 @@ let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
             vscode.TaskScope.Workspace,
             'GA144 Send Programming',
             'customTask',
-            new vscode.ShellExecution('python', ['${workspaceFolder}/launch_send_script.py', '${workspaceFolder}/examples/${fileBasenameNoExtension}_.ga', '--port', port])
+            new vscode.ShellExecution('python', ['${cwd}/launch_send_script.py', '${cwd}/examples/${fileBasenameNoExtension}_.ga', '--port', port])
             
         
         
