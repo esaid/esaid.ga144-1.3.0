@@ -5,8 +5,8 @@ function activate(context) {
     // Obtenir le chemin d'installation de l'extension
     const extensionPath = context.extensionPath;
     // vscode.window.showInformationMessage('Extension path: ' + extensionPath);
-
-
+    //  vue dans Explorer ga144
+    // send file to serial port
     let viewSend = vscode.window.registerTreeDataProvider('View.ga144-send', {
         getChildren() {
             return ['Send'];
@@ -27,7 +27,7 @@ function activate(context) {
             return treeItem;
         }
     });
-
+    // compilation
     let viewCompile = vscode.window.registerTreeDataProvider('View.ga144-compile', {
         getChildren() {
             return ['Compilation'];
@@ -48,6 +48,8 @@ function activate(context) {
             return treeItem;
         }
     });
+
+    // configuration serial-port
     let viewConfiguration = vscode.window.registerTreeDataProvider('View.ga144-configuration', {
         getChildren() {
             return ['Configuration Serial Port', 'Read Serial port', 'Readme'];
