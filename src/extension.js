@@ -86,7 +86,7 @@ function activate(context) {
 
     });
 
-
+    // commands for ga144
     let disposableHello = vscode.commands.registerCommand('myExtension.sayHello', function () {
         vscode.window.showInformationMessage('Hello World!');
     });
@@ -141,7 +141,7 @@ function activate(context) {
                 enableScripts: true // Autorise JavaScript dans la Webview
             });
 
-        panel.webview.html = getWebviewContent();
+        panel.webview.html = getWebviewSerialPortContent();
         // Écoute des messages de la Webview
         panel.webview.onDidReceiveMessage(
             message => {
@@ -164,7 +164,7 @@ function activate(context) {
 
 }
 
-function getWebviewContent() {
+function getWebviewSerialPortContent() {
     return `
         <!DOCTYPE html>
         <html lang="en">
