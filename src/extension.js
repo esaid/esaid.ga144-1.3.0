@@ -107,26 +107,33 @@ function activate(context) {
         const editor = vscode.window.activeTextEditor;
         const srcPath = path.dirname(editor.document.fileName);
         const librariesPath = path.join(extensionPath, '/Libraries/');
-        const fileName = editor.document.fileName
-        const dotIndex = filename.lastIndexOf('.');
-        const filename_ = filename.slice(0, dotIndex) + '_' + filename.slice(dotIndex);
+        const fileName = (editor.document.fileName).replace(srcPath, '').slice(1);
+               
 
         // le chemin absolu du script
-        const scriptPath = path.join(extensionPath, 'launch_script_gaparser2.py')
-        const commandPrecompilation = `${scriptPath} -dl ${librariesPath} -d "" -f ${fileName}`;
-        const commandCompilation = `${scriptPath} -dl ${librariesPath} -d "" -f ${filename_}`
-        vscode.window.showInformationMessage('Libraries path: ' + librariesPath);
-        vscode.window.showInformationMessage('File path: ' + fileName);
-        vscode.window.showInformationMessage('Script path: ' + scriptPath);
+        const scriptPrecompilationtPath = path.join(extensionPath, 'launch_script_gaparser2.py')
+        const commandPrecompilation = `${extensionPath} ${scriptPrecompilationtPath} -dl ${librariesPath} -d ${srcPath} -f ${fileName}`;
+        // le fichier avec  _.ga
+        const dotIndex = fileName.lastIndexOf('.'); 
+        const fileName_ga = fileName.slice(0, dotIndex) + '_' + fileName.slice(dotIndex);
+        const scriptCompilationPath = path.join(extensionPath, 'launch_script_ga.py')   
+        const commandCompilation = `${scriptCompilationPath} -dl ${librariesPath} -d ${srcPath} -f ${fileName_ga}`
+        // vscode.window.showInformationMessage('Libraries path: ' + librariesPath);
+        // vscode.window.showInformationMessage('File path: ' + fileName);
+        // vscode.window.showInformationMessage('Script path: ' + scriptPath);
+        vscode.window.showInformationMessage('Pre-Compilation: ' + commandPrecompilation);
         const precompiler_task = new vscode.Task(
             { type: 'shell' },
             vscode.TaskScope.Workspace,
             'GA144 Pre-Compilation',
             'customTask',
-            new vscode.ShellExecution('python', [commandPrecompilation])
+            new vscode.ShellExecution('python', [scriptCompilationPath, '-dl', librariesPath, '-d', srcPath, '-f', fileName])
         );
         vscode.tasks.executeTask(precompiler_task);
         vscode.window.showInformationMessage('Pre-Compilation');
+
+
+        vscode.window.showInformationMessage('Compilation: ' + commandCompilation);
         const compiler_task = new vscode.Task(
             { type: 'shell' },
             vscode.TaskScope.Workspace,

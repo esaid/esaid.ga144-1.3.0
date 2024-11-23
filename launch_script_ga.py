@@ -2,7 +2,9 @@ import os
 import sys
 import subprocess
 
+
 # Afficher le répertoire courant (pour le débogage)
+print("Le répertoire courant est :", os.getcwd())
 # print("Le répertoire courant est :", os.getcwd())
 # Récupérer les arguments à passer au script
 args = sys.argv[1:]  # Arguments fournis à run_script.py
