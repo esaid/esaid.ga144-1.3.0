@@ -6,6 +6,7 @@
 			"type": "shell",
 			"command": "python",
 			"args": [
+				"${cwd}",
 				"${cwd}/launch_script_gaparser2.py",
 				"-dl",
 				"${cwd}/Libraries/",
@@ -26,6 +27,7 @@
 			"type": "shell",
 			"command": "python",
 			"args": [
+				"${cwd}",
 				"${cwd}/launch_script_ga.py",
 				"${cwd}/examples/${fileBasenameNoExtension}_.ga",
 				">",
