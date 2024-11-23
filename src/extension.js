@@ -103,8 +103,42 @@ function activate(context) {
     });
 
     let disposableCompile = vscode.commands.registerCommand('myExtension.Ga144_Compile', function () {
-        vscode.commands.executeCommand('workbench.action.tasks.runTask', 'GA144 Compilation All');
-        vscode.window.showInformationMessage('Compilation All');
+        // Vérifiez si un éditeur est actif
+        const editor = vscode.window.activeTextEditor;
+        const srcPath = path.dirname(editor.document.fileName);
+        const librariesPath = path.join(extensionPath, '/Libraries/');
+        const fileName = editor.document.fileName
+        const dotIndex = filename.lastIndexOf('.');
+        const filename_ = filename.slice(0, dotIndex) + '_' + filename.slice(dotIndex);
+
+        // le chemin absolu du script
+        const scriptPath = path.join(extensionPath, 'launch_script_gaparser2.py')
+        const commandPrecompilation = `${scriptPath} -dl ${librariesPath} -d "" -f ${fileName}`;
+        const commandCompilation = `${scriptPath} -dl ${librariesPath} -d "" -f ${filename_}`
+        vscode.window.showInformationMessage('Libraries path: ' + librariesPath);
+        vscode.window.showInformationMessage('File path: ' + fileName);
+        vscode.window.showInformationMessage('Script path: ' + scriptPath);
+        const precompiler_task = new vscode.Task(
+            { type: 'shell' },
+            vscode.TaskScope.Workspace,
+            'GA144 Pre-Compilation',
+            'customTask',
+            new vscode.ShellExecution('python', [commandPrecompilation])
+        );
+        vscode.tasks.executeTask(precompiler_task);
+        vscode.window.showInformationMessage('Pre-Compilation');
+        const compiler_task = new vscode.Task(
+            { type: 'shell' },
+            vscode.TaskScope.Workspace,
+            'GA144 Compilation',
+            'customTask',
+            new vscode.ShellExecution('python', [commandCompilation])
+        )   
+        vscode.tasks.executeTask(compiler_task);
+        vscode.window.showInformationMessage('Compilation');
+
+
+        vscode.window.showInformationMessage('Compilation All Done');
     });
 
     let disposableSend = vscode.commands.registerCommand('myExtension.Ga144_Send', async function () {
