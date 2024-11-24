@@ -105,14 +105,16 @@ function activate(context) {
     let disposableCompile = vscode.commands.registerCommand('myExtension.Ga144_Compile', function () {
         // Vérifiez si un éditeur est actif
         const editor = vscode.window.activeTextEditor;
-        const srcPath = path.dirname(editor.document.fileName);
+        const srcPath = path.dirname(editor.document.fileName); // -d ${srcPath}
         const librariesPath = path.join(extensionPath, '/Libraries/');
         const fileName = (editor.document.fileName).replace(srcPath, '').slice(1);
+        // const fileName = (editor.document.fileName);
+        vscode.window.showInformationMessage('File name: ' + fileName);
                
 
         // le chemin absolu du script
         const scriptPrecompilationtPath = path.join(extensionPath, 'launch_script_gaparser2.py')
-        const commandPrecompilation = `${extensionPath} ${scriptPrecompilationtPath} -dl ${librariesPath} -d ${srcPath} -f ${fileName}`;
+        const commandPrecompilation = `${scriptPrecompilationtPath} -dl ${librariesPath} -d ${srcPath} -f ${fileName}`;
         // le fichier avec  _.ga
         const dotIndex = fileName.lastIndexOf('.'); 
         const fileName_ga = fileName.slice(0, dotIndex) + '_' + fileName.slice(dotIndex);
@@ -141,8 +143,8 @@ function activate(context) {
             'customTask',
             new vscode.ShellExecution('python', [commandCompilation])
         )   
-        vscode.tasks.executeTask(compiler_task);
-        vscode.window.showInformationMessage('Compilation');
+        // vscode.tasks.executeTask(compiler_task);
+        // vscode.window.showInformationMessage('Compilation');
 
 
         vscode.window.showInformationMessage('Compilation All Done');
