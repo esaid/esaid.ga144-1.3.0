@@ -5,8 +5,7 @@
 			"label": "PreCompiler_ga144_code", // Option -f avec l'argument ${file}  Le fichier .ga à pre-compiler	
 			"type": "shell",
 			"command": "python",
-			"args": [
-				"${cwd}",
+			"args": [				
 				"${cwd}/launch_script_gaparser2.py",
 				"-dl",
 				"${cwd}/Libraries/",
@@ -27,7 +26,7 @@
 			"type": "shell",
 			"command": "python",
 			"args": [
-				"${cwd}",
+				
 				"${cwd}/launch_script_ga.py",
 				"${cwd}/examples/${fileBasenameNoExtension}_.ga",
 				">",

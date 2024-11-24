@@ -4,7 +4,7 @@ import subprocess
 
 
 # Afficher le répertoire courant (pour le débogage)
-print("Le répertoire courant est :", os.getcwd())
+# print("Le répertoire courant est :", os.getcwd())
 # print("Le répertoire courant est :", os.getcwd())
 # Récupérer les arguments à passer au script
 args = sys.argv[1:]  # Arguments fournis à run_script.py
@@ -19,7 +19,7 @@ if os.name == 'posix':  # Linux ou autre
 
 
 # Afficher le script et les arguments (pour le débogage)
-print(f"Exécution de : {script} avec les arguments : {args}")
+# print(f"Exécution de : {script} avec les arguments : {args}")
 
 # Exécuter le script avec les arguments
 subprocess.run([script] + args)
