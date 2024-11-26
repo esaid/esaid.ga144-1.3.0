@@ -1,16 +1,41 @@
 import os
 import sys
 import subprocess
+import shlex
 
-# Afficher le répertoire courant (pour le débogage)
-# print("Le répertoire courant est :", os.getcwd())
-# Récupérer les arguments à passer au script
-args = sys.argv[1:]  # Arguments fournis
-# repertoire de l extension
-# print(f"repertoire extension  = {sys.argv[1]}")
-pathExtension = "/home/esaid/.vscode/extensions/esaid.ga144-1.3.0/"
-ga_script = os.path.join(pathExtension, 'ga144_script')  # Chemin vers le dossier 'ga144_script'
-# print(f"ga_script = {ga_script}")
+def convert_args(*args_):
+    return args_
+
+# Récupérer les arguments passés au script
+args = sys.argv # Liste initiale des arguments
+print(f"Arguments initiaux : {args}\n")
+
+# Découper les arguments (en cas de chaîne unique avec options groupées)
+if len(args) > 1:
+    args = [args[0]] + shlex.split(args[1])
+
+args = args[2:]
+# Prendre le dernier argument
+pathExtension = args[-1:]
+
+# Supprimer le dernier argument
+args = args[:-2]
+
+
+# Repasser la liste comme *args
+# args = convert_args(*args_)
+
+print(f"\n\npathExtension : {pathExtension}\n")
+print(f"\n\nArguments restants : {args}\n")
+
+print (type(pathExtension))
+
+
+ga_script = os.path.join(pathExtension[0], 'ga144_script')  # Chemin vers le dossier 'ga144_script'
+print(f"\nga_script = {ga_script}\n")
+
+sys.exit()
+
 # Déterminer le système d'exploitation
 if os.name == 'nt':  # Windows
     script = os.path.join( ga_script, 'windows', 'gaparser2.exe')

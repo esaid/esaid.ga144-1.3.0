@@ -33,6 +33,7 @@ if args.directory:
 if args.directory_Libraries:
     directoryBibliotheque = args.directory_Libraries
 
+
 file_ga =  directoryExamples + file_source
 file_ga_ = file_ga.replace('.ga', '_.ga')
 print("file source:    ",file_ga_)
