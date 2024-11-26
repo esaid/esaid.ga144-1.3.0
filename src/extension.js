@@ -129,7 +129,7 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Pre-Compilation',
             'customTask',
-            new vscode.ShellExecution('python', [scriptPrecompilationtPath, commandPrecompilation])
+            new vscode.ShellExecution('python', [scriptPrecompilationtPath, '-dl', librariesPath, '-d', srcPath, '-f', fileName, '-e', extensionPath])
         );
         vscode.tasks.executeTask(precompiler_task);
         vscode.window.showInformationMessage('Pre-Compilation');

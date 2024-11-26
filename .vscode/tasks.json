@@ -10,9 +10,11 @@
 				"-dl",
 				"${cwd}/Libraries/",
 				"-d",
-				"examples/",
+				"${cwd}/examples/",
 				"-f",
-				"${fileBasename}"
+				"${fileBasename}",
+				"-e",
+				"${cwd}"
 			],
 			"group": {
 				"kind": "build",
