@@ -1,19 +1,22 @@
-require delay
-require gpio
+\ require delay
+\ require gpio
 \ demo Led Pulse
 
 node 600
 : ledpulse
 
-    io.h \ led on
+   
+    0x30000 !b . .   \ led on
     pause
-    io.l \ led off
+   
+    0x20000 !b . .   \ led off
     pause
     5ms
     ledpulse
 
-
-
-
-
-    
+: pause
+	5000 for 10000 
+	for next . . next ;
+: 5ms ( 5ms )
+    5 for 999 ( us time )
+	for 416 for unext next  next ;

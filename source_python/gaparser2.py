@@ -40,17 +40,15 @@ if args.directory_Libraries:
 
 
 file_ga =  directoryExamples + file_source
-file_ga_ = file_ga.replace('.ga', '_.ga')
-print("file source:    ",file_ga_)
-
+file_source_ga = file_source.replace('.ga', '_.ga')
+file_ga_ = directoryExamples + file_source_ga
+print("file source:    ",file_ga)
 # read code source
 code = read_file(file_ga)
-print(f"file source: {file_ga}\n")
 print(f"code: \n{code}")
 
 # new code
-generation_code(code, directoryBibliotheque, file_ga_)
-print("read File  : ", file_ga)
+generation_code(code, directoryBibliotheque, file_ga)
 newcode = read_file(file_ga_)
 print(f"file modifiee : {file_ga_}\n")
 print(f"nouveau code: \n{newcode}")

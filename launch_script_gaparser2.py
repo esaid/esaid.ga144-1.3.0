@@ -5,6 +5,7 @@ import subprocess
 #  ['-dl', '/home/esaid/.vscode/extensions/esaid.ga144-1.3.0/Libraries/',
 #  '-d', '/home/esaid/.vscode/extensions/esaid.ga144-1.3.0/examples/',
 #  '-f', 'ledpulse.ga']
+# -e /home/esaid/.vscode/extensions/esaid.ga144-1.3.0
 # Récupérer les arguments passés au script
 args = sys.argv # Liste initiale des arguments
 print(f"Arguments initiaux : {args}\n")
@@ -21,7 +22,7 @@ print(f"\n\npathExtension : {pathExtension}\n")
 args = args[:-2]
 print(f"\n\nArguments restants : {args}\n")
 
-ga_script = os.path.join(pathExtension, 'ga144_script')  # Chemin vers le dossier 'ga144_script'
+ga_script = os.path.join(pathExtension, 'ga144_script/')  # Chemin vers le dossier 'ga144_script'
 print(f"\nga_script = {ga_script}\n")
 
 # Déterminer le système d'exploitation
