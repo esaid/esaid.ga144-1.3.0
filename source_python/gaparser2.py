@@ -48,7 +48,7 @@ code = read_file(file_ga)
 print(f"code: \n{code}")
 
 # new code
-generation_code(code, directoryBibliotheque, file_ga)
+generation_code(code, directoryBibliotheque, file_ga_)
 newcode = read_file(file_ga_)
 print(f"file modifiee : {file_ga_}\n")
 print(f"nouveau code: \n{newcode}")

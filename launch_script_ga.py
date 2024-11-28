@@ -8,7 +8,7 @@ import subprocess
 # print("Le répertoire courant est :", os.getcwd())
 # Récupérer les arguments à passer au script
 args = sys.argv[1:]  # Arguments fournis à run_script.py
-
+script = ''
 # Déterminer le système d'exploitation
 if os.name == 'nt':  # Windows
     script = os.path.join( 'ga144_script', 'windows', 'ga.exe')

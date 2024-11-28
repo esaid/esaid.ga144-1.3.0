@@ -1,5 +1,5 @@
-\ require delay
-\ require gpio
+require delay
+require gpio
 \ demo Led Pulse
 
 node 600
@@ -14,9 +14,3 @@ node 600
     5ms
     ledpulse
 
-: pause
-	5000 for 10000 
-	for next . . next ;
-: 5ms ( 5ms )
-    5 for 999 ( us time )
-	for 416 for unext next  next ;
