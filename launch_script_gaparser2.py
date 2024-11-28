@@ -2,8 +2,6 @@ import os
 import sys
 import subprocess
 
-from launch_script_ga import script
-
 script = ''
 #  /home/esaid/.vscode/extensions/esaid.ga144-1.3.0/ga144_script/linux/./gaparser2
 #  ['-dl', '/home/esaid/.vscode/extensions/esaid.ga144-1.3.0/Libraries/',

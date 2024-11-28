@@ -135,14 +135,14 @@ function activate(context) {
         vscode.window.showInformationMessage('Pre-Compilation');
 
 
-        vscode.window.showInformationMessage('Compilation: ' + commandCompilation);
-        const compiler_task = new vscode.Task(
-            { type: 'shell' },
-            vscode.TaskScope.Workspace,
-            'GA144 Compilation',
-            'customTask',
-            new vscode.ShellExecution('python', [commandCompilation])
-        )   
+        // vscode.window.showInformationMessage('Compilation: ' + commandCompilation);
+        // const compiler_task = new vscode.Task(
+        //    { type: 'shell' },
+        //    vscode.TaskScope.Workspace,
+        //    'GA144 Compilation',
+        //    'customTask',
+        //    new vscode.ShellExecution('python', [commandCompilation])
+        //)   
         // vscode.tasks.executeTask(compiler_task);
         // vscode.window.showInformationMessage('Compilation');
 
