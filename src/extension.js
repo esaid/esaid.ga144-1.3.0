@@ -121,8 +121,6 @@ function activate(context) {
         const scriptCompilationPath = path.join(extensionPath, 'launch_script_ga.py')
         const commandCompilation = `${scriptCompilationPath} -f ${fileName_ga} -e ${extensionPath}`;
         vscode.window.showInformationMessage('filename_ga : ' + fileName_ga);
-        // vscode.window.showInformationMessage('File path: ' + fileName);
-        // vscode.window.showInformationMessage('Script path: ' + scriptPath);
         vscode.window.showInformationMessage('Pre-Compilation: ' + commandPrecompilation);
         const precompiler_task = new vscode.Task(
             { type: 'shell' },
@@ -132,7 +130,6 @@ function activate(context) {
             new vscode.ShellExecution('python', [scriptPrecompilationtPath, '-dl', librariesPath, '-d', srcPath, '-f', fileName, '-e', extensionPath])
         );
         vscode.tasks.executeTask(precompiler_task);
-        vscode.window.showInformationMessage('Pre-Compilation');
 
 
         vscode.window.showInformationMessage('Compilation: ' + commandCompilation);
@@ -141,21 +138,16 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Compilation',
             'customTask',
-            new vscode.ShellExecution('python', [scriptCompilationPath, '-f', fileName_ga, '-e', extensionPath])   
+            new vscode.ShellExecution('python', [scriptCompilationPath, '-f', fileName_ga, '-e', extensionPath])
         )
         vscode.tasks.executeTask(compiler_task);
-        vscode.window.showInformationMessage('Compilation');
-
         vscode.window.showInformationMessage('Compilation All Done');
     });
 
     let disposableSend = vscode.commands.registerCommand('myExtension.Ga144_Send', async function () {
-        // vscode.commands.executeCommand('workbench.action.tasks.runTask', 'GA144 Send');
-
         // Vérifiez si un éditeur est actif
         const editor = vscode.window.activeTextEditor;
         const srcPath = path.dirname(editor.document.fileName);
-        // vscode.window.showInformationMessage('Source path: ' + srcPath);
         const port = vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort');
         // le chemin absolu du script
         const scriptPath = path.join(extensionPath, 'launch_send_script.py');
@@ -166,7 +158,6 @@ function activate(context) {
             'GA144 Send Programming',
             'customTask',
             new vscode.ShellExecution('python', [scriptPath, filePath, '--port', port])
-            // new vscode.ShellExecution('/home/esaid/anaconda3/bin/python --version')
 
         ); // script to execute from extensionPath and file example from current folder
         vscode.tasks.executeTask(send_task);
@@ -174,7 +165,6 @@ function activate(context) {
     });
 
     let disposableSerialPort = vscode.commands.registerCommand('myExtension.Ga144_Serial_Port', function () {
-
         const panel = vscode.window.createWebviewPanel(
             'myWebview', // Identifiant interne de la Webview
             'Configuration Serial Port', // Titre de la Webview
