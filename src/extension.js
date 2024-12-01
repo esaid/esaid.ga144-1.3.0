@@ -131,7 +131,8 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Pre-Compilation',
             'customTask',
-            new vscode.ShellExecution('python', [scriptPrecompilationtPath, '-dl', librariesPath, '-d', srcPath, '-f', fileName, '-e', extensionPath])
+            new vscode.ShellExecution('python', [scriptPrecompilationtPath, '-dl', librariesPath, '-d', srcPath, '-f', fileName, '-e', extensionPath]),
+            
         );
 
 
@@ -147,9 +148,11 @@ function activate(context) {
 
         // Événement pour détecter la fin de la tâche
         const disposable = vscode.tasks.onDidEndTaskProcess((event) => {
+            
             if (event.execution.task.name === 'GA144 Pre-Compilation') {
-                vscode.tasks.executeTask(compilerTask);
-                vscode.window.showInformationMessage('Compilation task started after pre-compilation.');
+                vscode.window.showInformationMessage('Starting Compilation Task...');
+                vscode.tasks.executeTask(compiler_task);
+                
                 disposable.dispose(); // Nettoie l'écouteur après l'exécution
             }
         });
@@ -207,7 +210,7 @@ function activate(context) {
         );
     });
 
-    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, viewCompile, viewSend, disposableCompile,disposable, disposableSend);
+    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, viewCompile, viewSend, disposableCompile, disposableSend);
 
 }
 
