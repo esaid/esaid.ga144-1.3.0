@@ -6,19 +6,19 @@ import subprocess
 #  -e .vscode/extensions/esaid.ga144-1.3.0
 # Récupérer les arguments à passer au script
 args = sys.argv # Liste initiale des arguments
-print(f"Arguments initiaux : {args}\n")
+# print(f"Arguments initiaux : {args}\n")
 
 args = args[1:]
 # Prendre le dernier argument
 pathExtension = args[-1:][0].strip()
-print(f"\n\npathExtension : {pathExtension}\n")
+# print(f"\n\npathExtension : {pathExtension}\n")
 # Supprimer le dernier argument
 args = args[:-2] # suppression de l'argument 'pathExtension'
 args = args[1:] # suppression de '-f'
-print(f"\n\nArguments restants : {args}\n")
+# print(f"\n\nArguments restants : {args}\n")
 
 ga_script = os.path.join(pathExtension, 'ga144_script/')  # Chemin vers le dossier 'ga144_script'
-print(f"\nga_script = {ga_script}\n")
+# print(f"\nga_script = {ga_script}\n")
 
 # Déterminer le système d'exploitation
 if os.name == 'nt':  # Windows
@@ -30,8 +30,7 @@ if os.name == 'posix':  # Linux ou autre
 
 
 # Afficher le script et les arguments (pour le débogage)
-print(f"Exécution de : {ga_script} avec les arguments : {args}")
-print(f"type arguments : {type(args)}")
+# print(f"Exécution de : {ga_script} avec les arguments : {args}")
+# print(f"type arguments : {type(args)}")
 # Exécuter le script avec les arguments
 subprocess.run([ga_script] + args)
-# subprocess.run([ga_script] + [""])  
