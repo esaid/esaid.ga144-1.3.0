@@ -11,9 +11,19 @@
       ],
       "outFiles": [
         "${workspaceFolder}/src/**/*.js"
-      ],          
-      
+      ],
     },
-   
+    {
+      "name": "Python: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "args": [
+        
+        "-f", "/home/esaid/PycharmProjects/gaparser2/examples/ledpulse_.ga",
+        "-e", "/home/esaid/.vscode/extensions/esaid.ga144-1.3.0/"
+      ],
+    }
   ]
 }

@@ -31,7 +31,7 @@ if os.name == 'posix':  # Linux ou autre
 
 # Afficher le script et les arguments (pour le débogage)
 print(f"Exécution de : {ga_script} avec les arguments : {args}")
-
+print(f"type arguments : {type(args)}")
 # Exécuter le script avec les arguments
 subprocess.run([ga_script] + args)
 # subprocess.run([ga_script] + [""])  
