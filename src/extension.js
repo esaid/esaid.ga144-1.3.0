@@ -207,7 +207,7 @@ function activate(context) {
         );
     });
 
-    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, viewCompile, viewSend, disposableCompile, disposableSend);
+    context.subscriptions.push(disposableHello, disposableConfigurationSerialPort, disposableSerialPort, disposableReadme, viewConfiguration, viewCompile, viewSend, disposableCompile,disposable, disposableSend);
 
 }
 
