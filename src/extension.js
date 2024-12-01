@@ -135,8 +135,6 @@ function activate(context) {
             
         );
 
-
-
         vscode.window.showInformationMessage('Compilation: ' + commandCompilation);
         const compiler_task = new vscode.Task(
             { type: 'shell' },
