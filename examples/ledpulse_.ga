@@ -4,7 +4,6 @@
 
 node 600
 : ledpulse
-
    
     0x30000 !b . .   \ led on
     pause

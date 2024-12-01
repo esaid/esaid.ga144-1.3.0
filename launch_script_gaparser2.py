@@ -3,11 +3,11 @@ import sys
 import subprocess
 
 script = ''
-#  /home/esaid/.vscode/extensions/esaid.ga144-1.3.0/ga144_script/linux/./gaparser2
+#  python /home/esaid/.vscode/extensions/esaid.ga144-1.3.0/launch_script_gaparser2.py
 #  ['-dl', '/home/esaid/.vscode/extensions/esaid.ga144-1.3.0/Libraries/',
 #  '-d', '/home/esaid/.vscode/extensions/esaid.ga144-1.3.0/examples/',
-#  '-f', 'ledpulse.ga']
-# -e /home/esaid/.vscode/extensions/esaid.ga144-1.3.0
+#  '-f', 'ledpulse.ga'
+# '-e', '/home/esaid/.vscode/extensions/esaid.ga144-1.3.0']
 # Récupérer les arguments passés au script
 args = sys.argv # Liste initiale des arguments
 print(f"Arguments initiaux : {args}\n")
