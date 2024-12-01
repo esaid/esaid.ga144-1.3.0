@@ -141,7 +141,7 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Compilation',
             'customTask',
-            new vscode.ShellExecution('python', [commandCompilation])
+            new vscode.ShellExecution('python', [scriptCompilationPath, '-f', fileName_ga, '-e', extensionPath])   
         )
         vscode.tasks.executeTask(compiler_task);
         vscode.window.showInformationMessage('Compilation');
