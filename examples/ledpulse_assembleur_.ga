@@ -1,0 +1,14 @@
+Arguments initiaux : ['/home/esaid/.vscode/extensions/esaid.ga144-1.3.0/launch_script_ga.py', '/home/esaid/.vscode/extensions/esaid.ga144-1.3.0/examples/ledpulse_.ga']
+
+
+
+pathExtension : /home/esaid/.vscode/extensions/esaid.ga144-1.3.0/examples/ledpulse_.ga
+
+
+
+Arguments restants : []
+
+
+ga_script = /home/esaid/.vscode/extensions/esaid.ga144-1.3.0/examples/ledpulse_.ga/ga144_script/
+
+Exécution de : /home/esaid/.vscode/extensions/esaid.ga144-1.3.0/examples/ledpulse_.ga/ga144_script/linux/./ga avec les arguments : []

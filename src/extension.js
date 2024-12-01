@@ -105,22 +105,22 @@ function activate(context) {
     let disposableCompile = vscode.commands.registerCommand('myExtension.Ga144_Compile', function () {
         // Vérifiez si un éditeur est actif
         const editor = vscode.window.activeTextEditor;
-        const srcPath = path.dirname(editor.document.fileName)+'/'; // -d ${srcPath}
+        const srcPath = path.dirname(editor.document.fileName) + '/'; // -d ${srcPath}
         const librariesPath = path.join(extensionPath, '/Libraries/');
         const fileName = (editor.document.fileName).replace(srcPath, '');
         // const fileName = (editor.document.fileName);
         vscode.window.showInformationMessage('File name: ' + fileName);
-               
+
 
         // le chemin absolu du script
         const scriptPrecompilationtPath = path.join(extensionPath, 'launch_script_gaparser2.py')
-        const commandPrecompilation = `${scriptPrecompilationtPath} -dl ${librariesPath} -d ${srcPath} -f ${fileName} -e ${extensionPath}` ;
+        const commandPrecompilation = `${scriptPrecompilationtPath} -dl ${librariesPath} -d ${srcPath} -f ${fileName} -e ${extensionPath}`;
         // le fichier avec  _.ga
-        const dotIndex = fileName.lastIndexOf('.'); 
-        const fileName_ga = fileName.slice(0, dotIndex) + '_' + fileName.slice(dotIndex);
-        const scriptCompilationPath = path.join(extensionPath, 'launch_script_ga.py')   
-        const commandCompilation = `${scriptCompilationPath} -dl ${librariesPath} -d ${srcPath} -f ${fileName_ga}`
-        // vscode.window.showInformationMessage('Libraries path: ' + librariesPath);
+        const dotIndex = fileName.lastIndexOf('.');
+        const fileName_ga = path.join(srcPath, (fileName.slice(0, dotIndex) + '_' + fileName.slice(dotIndex)));
+        const scriptCompilationPath = path.join(extensionPath, 'launch_script_ga.py')
+        const commandCompilation = `${scriptCompilationPath} -f ${fileName_ga} -e ${extensionPath}`;
+        vscode.window.showInformationMessage('filename_ga : ' + fileName_ga);
         // vscode.window.showInformationMessage('File path: ' + fileName);
         // vscode.window.showInformationMessage('Script path: ' + scriptPath);
         vscode.window.showInformationMessage('Pre-Compilation: ' + commandPrecompilation);
@@ -135,17 +135,16 @@ function activate(context) {
         vscode.window.showInformationMessage('Pre-Compilation');
 
 
-        // vscode.window.showInformationMessage('Compilation: ' + commandCompilation);
-        // const compiler_task = new vscode.Task(
-        //    { type: 'shell' },
-        //    vscode.TaskScope.Workspace,
-        //    'GA144 Compilation',
-        //    'customTask',
-        //    new vscode.ShellExecution('python', [commandCompilation])
-        //)   
-        // vscode.tasks.executeTask(compiler_task);
-        // vscode.window.showInformationMessage('Compilation');
-
+        vscode.window.showInformationMessage('Compilation: ' + commandCompilation);
+        const compiler_task = new vscode.Task(
+            { type: 'shell' },
+            vscode.TaskScope.Workspace,
+            'GA144 Compilation',
+            'customTask',
+            new vscode.ShellExecution('python', [commandCompilation])
+        )
+        vscode.tasks.executeTask(compiler_task);
+        vscode.window.showInformationMessage('Compilation');
 
         vscode.window.showInformationMessage('Compilation All Done');
     });
