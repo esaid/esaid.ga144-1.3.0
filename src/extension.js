@@ -105,6 +105,10 @@ function activate(context) {
     let disposableCompile = vscode.commands.registerCommand('myExtension.Ga144_Compile', function () {
         // Vérifiez si un éditeur est actif
         const editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            vscode.window.showErrorMessage("Aucun fichier actif.");
+            return;
+        }
         const srcPath = path.dirname(editor.document.fileName) + '/'; // -d ${srcPath}
         const librariesPath = path.join(extensionPath, '/Libraries/');
         const fileName = (editor.document.fileName).replace(srcPath, '');
@@ -129,7 +133,7 @@ function activate(context) {
             'customTask',
             new vscode.ShellExecution('python', [scriptPrecompilationtPath, '-dl', librariesPath, '-d', srcPath, '-f', fileName, '-e', extensionPath])
         );
-        vscode.tasks.executeTask(precompiler_task);
+
 
 
         vscode.window.showInformationMessage('Compilation: ' + commandCompilation);
@@ -140,7 +144,18 @@ function activate(context) {
             'customTask',
             new vscode.ShellExecution('python', [scriptCompilationPath, '-f', fileName_ga, '-e', extensionPath])
         )
-        vscode.tasks.executeTask(compiler_task);
+
+        // Événement pour détecter la fin de la tâche
+        const disposable = vscode.tasks.onDidEndTaskProcess((event) => {
+            if (event.execution.task.name === 'GA144 Pre-Compilation') {
+                vscode.tasks.executeTask(compilerTask);
+                vscode.window.showInformationMessage('Compilation task started after pre-compilation.');
+                disposable.dispose(); // Nettoie l'écouteur après l'exécution
+            }
+        });
+
+        vscode.tasks.executeTask(precompiler_task);
+
         vscode.window.showInformationMessage('Compilation All Done');
     });
 
