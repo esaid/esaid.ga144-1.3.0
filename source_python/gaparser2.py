@@ -1,7 +1,5 @@
 import sys
 import argparse
-import subprocess
-import pyutil
 from bibliotheque_create import read_file, generation_code
 
 # python /home/esaid/.vscode/extensions/esaid.ga144-1.3.0/launch_script_gaparser2.py
