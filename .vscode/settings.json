@@ -1,7 +1,7 @@
 {
     "ga144": "GA144 Default Theme (dark)",
     "python": "Default Dark+",
-    "workbench.colorTheme": "Abyss",
+    "workbench.colorTheme": "Default Dark+",
     "debug.defaultConfigurations": {
         "type": "extensionHost",
         "name": "Run Extension"
