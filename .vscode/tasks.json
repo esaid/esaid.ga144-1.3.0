@@ -49,6 +49,7 @@
 				"PreCompiler_ga144_code",
 				"Compiler_ga144_code"
 			],
+			"dependsOrder": "sequence", // Assure que les dépendances sont exécutées dans l'ordre
 			"group": {
 				"kind": "build",
 				"isDefault": true
