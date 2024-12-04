@@ -111,8 +111,8 @@ function activate(context) {
         }
         const srcPath = path.dirname(editor.document.fileName) + '/'; // -d ${srcPath}
         const librariesPath = path.join(extensionPath, '/Libraries/');
-        const fileName = (editor.document.fileName).replace(srcPath, '');
-        // const fileName = (editor.document.fileName);
+        // const fileName = (editor.document.fileName).replace(srcPath, '');
+        const fileName = path.basename(editor.document.fileName);
         vscode.window.showInformationMessage('File name: ' + fileName);
 
 
