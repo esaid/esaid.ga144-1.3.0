@@ -142,6 +142,7 @@ function activate(context) {
             'GA144 Compilation',
             'customTask',
             new vscode.ShellExecution('python', [scriptCompilationPath, '-f', fileName_ga, '-e', extensionPath])
+            // implementation sauveagarde fichier_assembleur a faire
         )
 
         // Événement pour détecter la fin de la tâche
