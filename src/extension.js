@@ -122,6 +122,7 @@ function activate(context) {
         // le fichier avec  _.ga
         const dotIndex = fileName.lastIndexOf('.');
         const fileName_ga = path.join(srcPath, (fileName.slice(0, dotIndex) + '_' + fileName.slice(dotIndex)));
+        const filename_assembleur = path.join(srcPath, (fileName.slice(0, dotIndex) + '_assembleur_.ga'));
         const scriptCompilationPath = path.join(extensionPath, 'launch_script_ga.py')
         const commandCompilation = `${scriptCompilationPath} -f ${fileName_ga} -e ${extensionPath}`;
         vscode.window.showInformationMessage('filename_ga : ' + fileName_ga);
@@ -141,7 +142,7 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Compilation',
             'customTask',
-            new vscode.ShellExecution('python', [scriptCompilationPath, '-f', fileName_ga, '-e', extensionPath])
+            new vscode.ShellExecution('python', [scriptCompilationPath, '-f', fileName_ga, '-e', extensionPath,'>',filename_assembleur]),
             // implementation sauveagarde fichier_assembleur a faire
         )
 
