@@ -2,11 +2,14 @@ import sys
 import argparse
 from bibliotheque_create import read_file, generation_code
 
-# python /home/esaid/.vscode/extensions/esaid.ga144-1.3.0/launch_script_gaparser2.py
+# windows:
+# -dl C:/Users/esaid/.vscode/extensions/esaid.ga144-1.3.0/Libraries/
+# -d C:/Users/esaid/.vscode/extensions/esaid.ga144-1.3.0/examples/
+# -f  ledpulse.ga
+# linux
 # -dl /home/esaid/.vscode/extensions/esaid.ga144-1.3.0/Libraries/
 # -d /home/esaid/.vscode/extensions/esaid.ga144-1.3.0/examples/
 # -f ledpulse.ga
-# -e /home/esaid/.vscode/extensions/esaid.ga144-1.3.0
 # -------------------------------------------------------------------
 # repertoire / initialisation
 file_source = ''
