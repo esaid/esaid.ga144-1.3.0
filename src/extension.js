@@ -165,6 +165,7 @@ function activate(context) {
     let disposableSend = vscode.commands.registerCommand('myExtension.Ga144_Send', async function () {
         // Vérifiez si un éditeur est actif
         const editor = vscode.window.activeTextEditor;
+        const fileName = path.basename(editor.document.fileName);
         const srcPath = path.dirname(editor.document.fileName);
         const dotIndex = fileName.lastIndexOf('.');
         const fileName_ga_path = path.join(srcPath, (fileName.slice(0, dotIndex) + '_' + fileName.slice(dotIndex)));
