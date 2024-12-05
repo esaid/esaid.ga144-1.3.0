@@ -133,7 +133,7 @@ function activate(context) {
             'GA144 Pre-Compilation',
             'customTask',
             new vscode.ShellExecution('python', [scriptPrecompilationtPath, '-dl', librariesPath, '-d', srcPath, '-f', fileName, '-e', extensionPath]),
-            
+
         );
 
         vscode.window.showInformationMessage('Compilation: ' + commandCompilation);
@@ -142,17 +142,17 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Compilation',
             'customTask',
-            new vscode.ShellExecution('python', [scriptCompilationPath, '-f', fileName_ga, '-e', extensionPath,'>',filename_assembleur]),
+            new vscode.ShellExecution('python', [scriptCompilationPath, '-f', fileName_ga, '-e', extensionPath, '>', filename_assembleur]),
             // implementation sauveagarde fichier_assembleur a faire
         )
 
         // Événement pour détecter la fin de la tâche
         const disposable = vscode.tasks.onDidEndTaskProcess((event) => {
-            
+
             if (event.execution.task.name === 'GA144 Pre-Compilation') {
                 vscode.window.showInformationMessage('Starting Compilation Task...');
                 vscode.tasks.executeTask(compiler_task);
-                
+
                 disposable.dispose(); // Nettoie l'écouteur après l'exécution
             }
         });
@@ -166,17 +166,17 @@ function activate(context) {
         // Vérifiez si un éditeur est actif
         const editor = vscode.window.activeTextEditor;
         const srcPath = path.dirname(editor.document.fileName);
-        const fileName_ga = path.basename(srcPath,path(path.extname(srcPath))); 
+        const dotIndex = fileName.lastIndexOf('.');
+        const fileName_ga_path = path.join(srcPath, (fileName.slice(0, dotIndex) + '_' + fileName.slice(dotIndex)));
         const port = vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort');
         // le chemin absolu du script
         const scriptPath = path.join(extensionPath, 'launch_send_script.py');
-        const filePath = path.join(srcPath, fileName_ga);
         const send_task = new vscode.Task(
             { type: 'shell' },
             vscode.TaskScope.Workspace,
             'GA144 Send Programming',
             'customTask',
-            new vscode.ShellExecution('python', [scriptPath, filePath, '--port', port])
+            new vscode.ShellExecution('python', [scriptPath, fileName_ga_path, '--port', port])
 
         ); // script to execute from extensionPath and file example from current folder
         vscode.tasks.executeTask(send_task);
