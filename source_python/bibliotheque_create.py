@@ -70,7 +70,7 @@ def code_to_add_to_replace(list_code_, dict_bibliotheque_):
         for key, value in dict_bibliotheque_.items():
             if inany(lc, key):
                 if (key not in code_to_replace_) and (key not in code_to_add_):
-                    code_to_replace_.extend([key, str(value.removeprefix(key)).replace(';', '')])
+                    code_to_replace_.extend([key, str(value[len(key):] if value.startswith(key) else value).replace(';', '')])
     # clean code_to_replace
     code_to_add_ = code_to_add_[1::2]  # odd element
     return code_to_add_, code_to_replace_
