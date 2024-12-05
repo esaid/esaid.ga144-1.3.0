@@ -166,10 +166,11 @@ function activate(context) {
         // Vérifiez si un éditeur est actif
         const editor = vscode.window.activeTextEditor;
         const srcPath = path.dirname(editor.document.fileName);
+        const fileName_ga = path.basename(srcPath,path(path.extname(srcPath))); 
         const port = vscode.workspace.getConfiguration().get('myExtension.MyConfigurationSerialPort');
         // le chemin absolu du script
         const scriptPath = path.join(extensionPath, 'launch_send_script.py');
-        const filePath = path.join(srcPath, '${fileBasenameNoExtension}_.ga');
+        const filePath = path.join(srcPath, fileName_ga);
         const send_task = new vscode.Task(
             { type: 'shell' },
             vscode.TaskScope.Workspace,
