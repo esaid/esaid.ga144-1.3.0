@@ -21,8 +21,11 @@
       "console": "integratedTerminal",
       "args": [
         
-        "-f", "C:\\Users\\esaid\\.vscode\\extensions\\esaid.ga144-1.3.0\\examples\\ledpulse._ga",
-        "-e", "C:\\Users\\esaid\\.vscode\\extensions\\esaid.ga144-1.3.0\\"
+        "/home/esaid/PycharmProjects/gaparser2/examples/ledpulse_.ga" , 
+        "--port",
+         "usb0",
+         "/home/esaid/.vscode/extensions/esaid.ga144-1.3.0"
+        
       ],
     }
   ]
