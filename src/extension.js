@@ -163,6 +163,8 @@ function activate(context) {
     });
 
     let disposableSend = vscode.commands.registerCommand('myExtension.Ga144_Send', async function () {
+        // /ex : dev/ttyUSB0  linux
+        // ex : COM4   windows
         // Vérifiez si un éditeur est actif
         const editor = vscode.window.activeTextEditor;
         const fileName = path.basename(editor.document.fileName);
