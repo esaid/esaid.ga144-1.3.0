@@ -7,7 +7,6 @@ import subprocess
 # Récupérer les arguments à passer au script
 args = sys.argv # Liste initiale des arguments
 # print(f"Arguments initiaux : {args}\n")
-
 args = args[1:]
 # Prendre le dernier argument
 pathExtension = args[-1:][0].strip()

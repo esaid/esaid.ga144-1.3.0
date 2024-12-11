@@ -163,6 +163,8 @@ function activate(context) {
     });
 
     let disposableSend = vscode.commands.registerCommand('myExtension.Ga144_Send', async function () {
+        // /ex : dev/ttyUSB0  linux
+        // ex : COM4   windows
         // Vérifiez si un éditeur est actif
         const editor = vscode.window.activeTextEditor;
         const fileName = path.basename(editor.document.fileName);
@@ -177,7 +179,7 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Send Programming',
             'customTask',
-            new vscode.ShellExecution('python', [scriptPath, fileName_ga_path, '--port', port])
+            new vscode.ShellExecution('python', [scriptPath, fileName_ga_path, '--port', port, extensionPath])
 
         ); // script to execute from extensionPath and file example from current folder
         vscode.tasks.executeTask(send_task);

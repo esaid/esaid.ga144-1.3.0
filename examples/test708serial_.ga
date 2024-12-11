@@ -1,0 +1,3 @@
+node 707 
+include 708serial.ga
+: main 1234 send exit ;
