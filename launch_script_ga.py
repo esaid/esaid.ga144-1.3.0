@@ -25,8 +25,8 @@ if os.name == 'nt':  # Windows
     ga_script = os.path.join(pathExtension,'ga144_script', 'windows', 'ga.exe').replace("/", os.sep) # Remplacer / par \ pour Windows
     args = [arg.replace('/', os.sep) for arg in args]  # Remplacer / par \ pour Windows
 if os.name == 'posix':  # Linux ou autre
-    ga_script = os.path.join(pathExtension,'ga144_script','linux', './ga')
-    args = [arg.replace('\\', '/') for arg in args]   # Remplacer \ par / pour Linux
+    ga_script = os.path.join(pathExtension,'ga144_script','linux', './ga').replace("\\", os.sep)
+    args = [arg.replace('\\', os.sep) for arg in args]   # Remplacer \ par / pour Linux
 commande = [ga_script] + args
 
 # Afficher le script et les arguments (pour le débogage)
