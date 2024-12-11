@@ -166,6 +166,7 @@ function activate(context) {
         // /ex : dev/ttyUSB0  linux
         // ex : COM4   windows
         // Vérifiez si un éditeur est actif
+        const extensionPath = context.extensionPath;
         const editor = vscode.window.activeTextEditor;
         const fileName = path.basename(editor.document.fileName);
         const srcPath = path.dirname(editor.document.fileName);
@@ -179,11 +180,11 @@ function activate(context) {
             vscode.TaskScope.Workspace,
             'GA144 Send Programming',
             'customTask',
-            new vscode.ShellExecution('python', [scriptPath, fileName_ga_path, '--port', port, extensionPath])
-
+            new vscode.ShellExecution('python', [scriptPath, fileName_ga_path, '--port', port, extensionPath]),
         ); // script to execute from extensionPath and file example from current folder
         vscode.tasks.executeTask(send_task);
-        vscode.window.showInformationMessage('Send --port ' + port);
+        vscode.window.showInformationMessage('Send  all Done');
+
     });
 
     let disposableSerialPort = vscode.commands.registerCommand('myExtension.Ga144_Serial_Port', function () {
