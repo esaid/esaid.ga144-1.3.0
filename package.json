@@ -161,6 +161,7 @@
 		"isApplicationScoped": false,
 		"installedTimestamp": 1729470810343,
 		"pinned": true,
-		"source": "vsix"
+		"source": "vsix",
+		"size": 757870951
 	}
 }
