@@ -3,7 +3,7 @@
 	"displayName": "ga144",
 	"description": "GA144  ( Forth ) programming language",
 	"icon": "images/colorforth.png",
-	"version": "1.3.0",
+	"version": "1.4.0",
 	"main": "./src/extension.js",
 	"publisher": "esaid",
 	"author": {
