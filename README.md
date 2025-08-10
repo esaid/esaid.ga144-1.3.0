@@ -57,10 +57,15 @@ Initial release of 1.0.0
 
 tutorial extension GA144
 download videos  : 
+
 download_ga144...vsix.webm
+
 install_vscode_extesion.webm
+
 example_compilation.webm
+
 configuration_USB_programming.webm	
+
 
 
 
