@@ -55,6 +55,13 @@ Initial release of 1.0.0
 ## video  tutorial 
 <img width="353" height="148" alt="image" src="https://github.com/user-attachments/assets/5bb0394b-2db1-41ad-8b78-5046aff93305" />
 
+tutorial extension GA144
+download videos  : 
+download_ga144...vsix.webm
+install_vscode_extesion.webm
+example_compilation.webm
+configuration_USB_programming.webm	
+
 
 
 ## For more information
