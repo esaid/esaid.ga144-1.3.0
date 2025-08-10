@@ -60,7 +60,7 @@ download videos  :
 
 download_ga144...vsix.webm
 
-install_vscode_extesion.webm
+install_vscode_extension.webm
 
 example_compilation.webm
 
